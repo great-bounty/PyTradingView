@@ -12,7 +12,19 @@ license = {text = "MIT"}
 authors = [
     {name = "LFC", email = "1531724247@qq.com"}
 ]
-keywords = ["tradingview", "trading", "charting", "technical-analysis"]
+keywords = [
+    "charting",
+    "electron",
+    "indicator",
+    "javascript",
+    "pandas-ta",
+    "python",
+    "technical-analysis",
+    "tradingview",
+    "trading",
+    "typescript",
+    "vue"
+]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",
