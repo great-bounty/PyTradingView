@@ -194,4 +194,4 @@ This is the first stable release of PyTradingView - a comprehensive Python clien
 
 ---
 
-[1.0.0]: https://github.com/yourusername/pytradingview/releases/tag/v1.0.0
+[1.0.1]: https://github.com/yourusername/pytradingview/releases/tag/v1.0.1
