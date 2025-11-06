@@ -166,7 +166,7 @@ This is the first stable release of PyTradingView - a comprehensive Python clien
 - pandas >= 1.5.0
 - aiohttp >= 3.8.0
 - pathlib >= 1.0.1
-- pandas-ta >= 0.3.14b0
+- pandas-ta >= 0.4.71b0
 
 ### 🎯 Python Support
 
@@ -174,6 +174,7 @@ This is the first stable release of PyTradingView - a comprehensive Python clien
 - Python 3.9
 - Python 3.10
 - Python 3.11
+- Python 3.12
 
 ### 📄 License
 

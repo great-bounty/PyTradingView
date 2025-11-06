@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pytradingviewlib"
-version = "1.0.0"
+version = "1.0.1"
 description = "A Python client library for TradingView Widget API. ✨Using Python to interact with TradingView📈, just like using JavaScript🚀🎉"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -22,6 +22,7 @@ classifiers = [
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
 ]
 
 dependencies = [
@@ -31,7 +32,7 @@ dependencies = [
     "pandas>=1.5.0",
     "aiohttp>=3.8.0",
     "pathlib>=1.0.1",
-    "pandas-ta>=0.3.14b0"
+    "pandas-ta>=0.4.71b0"
 ]
 
 [project.optional-dependencies]
