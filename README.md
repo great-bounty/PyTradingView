@@ -12,7 +12,8 @@
 
 </div>
 
-A Python client library for TradingView Widget API. ✨Using Python to interact with TradingView📈, just like using JavaScript🚀🎉
+A Python client library for TradingView Widget API. ✨Using Python to interact with TradingView📈, just like using JavaScript🚀🎉.
+⚠️ **Tips:** You need to download and install the GUI app in order to correctly display the technical indicators you write using this library on TradingView charts. You can download the appropriate version of the GUI app from the repository's Releases section.
 
 [简体中文](README_zh.md) | English
 
