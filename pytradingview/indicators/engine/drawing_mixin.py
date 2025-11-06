@@ -196,7 +196,7 @@ class TVEngineDrawing(TVEngineRemote):
         
         New version: TVSignal now directly uses timestamp, no conversion needed
         """
-        from ...shapes import TVShapePoint, TVArrowUp, TVArrowDown
+        from ...shapes import TVShapePoint, TVArrowUp, TVArrowDown, TVSingleShape, TVMultipleShape, TVAnchorShape, TVShapePosition
         
         if not chart:
             return
@@ -222,7 +222,7 @@ class TVEngineDrawing(TVEngineRemote):
         else:
             return  # neutral signals are not drawn
         
-        point = TVShapePoint(time=timestamp, price=float(signal.price))
+        point = TVShapePoint(time=self._convert_timestamp_to_seconds(timestamp), price=float(signal.price))
         entity_id = await chart.createShape(point=point, options=arrow)
         indicator.add_drawn_entity(entity_id)
     
@@ -240,8 +240,7 @@ class TVEngineDrawing(TVEngineRemote):
         Design improvement: drawable.points now directly stores (time, price)
         No timestamp array conversion needed, direct usage, 40% performance improvement
         """
-        from ...shapes import TVShapePoint, TVSingleShape, TVMultipleShape, TVAnchorShape
-        from ...shapes.TVShapePosition import TVShapePosition
+        from ...shapes import TVShapePoint, TVSingleShape, TVMultipleShape, TVAnchorShape, TVShapePosition
         
         if not chart or not drawable.points:
             return
@@ -250,7 +249,7 @@ class TVEngineDrawing(TVEngineRemote):
         # No conversion needed, directly create TVShapePoint
         shape_points = []
         for time, price in drawable.points:
-            shape_points.append(TVShapePoint(time=int(time), price=float(price)))
+            shape_points.append(TVShapePoint(time=self._convert_timestamp_to_seconds(time), price=float(price)))
         
         if not shape_points:
             return
@@ -277,8 +276,7 @@ class TVEngineDrawing(TVEngineRemote):
         if entity_id:
             indicator.add_drawn_entity(entity_id)
     
-    @staticmethod
-    def _convert_timestamp_to_seconds(timestamp: Any) -> int:
+    def _convert_timestamp_to_seconds(self, timestamp: Any) -> int:
         """Convert timestamp to seconds unit"""
         if hasattr(timestamp, 'value'):
             return int(timestamp.value // 1_000_000_000)

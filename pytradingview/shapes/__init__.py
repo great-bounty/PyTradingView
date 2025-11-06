@@ -1,11 +1,17 @@
 """Shapes module for PyTradingView."""
 
+from .TVArrowUp import TVArrowUp, TVArrowUpOverrides
+from .TVArrowDown import TVArrowDown, TVArrowDownOverrides
+from .TVArrowLeft import TVArrowLeft, TVArrowLeftOverrides
+from .TVArrowRight import TVArrowRight, TVArrowRightOverrides
 from .TVBaseShape import TVBaseShape
 from .TVShape import TVShape
 from .TVShapePoint import TVShapePoint
 from .TVShapePosition import TVShapePosition
 from .TVSelection import TVSelection
 from .TVShapesGroupController import TVShapesGroupController
+from .TVSingleShape import TVSingleShape
+from .TVMultipleShape import TVMultipleShape
 
 # Import all shape types for easy access
 from .TVAbcdPattern import TVAbcdPattern, TVAbcdPatternOverrides
@@ -65,30 +71,56 @@ from .TVIcon import TVIcon, TVIconOverrides
 from .TVInfoLine import TVInfoLine, TVInfoLineOverrides
 from .TVInsidePitchfork import TVInsidePitchfork, TVInsidePitchforkOverrides
 from .TVLongPosition import TVLongPosition, TVLongPositionOverrides
+from .TVShortPosition import TVShortPosition, TVShortPositionOverrides
 from .TVNote import TVNote, TVNoteOverrides
+from .TVParallelChannel import TVParallelChannel, TVParallelChannelOverrides
+from .TVPath import TVPath, TVPathOverrides
 from .TVPitchfan import TVPitchfan, TVPitchfanOverrides
 from .TVPitchfork import TVPitchfork, TVPitchforkOverrides
 from .TVPolyline import TVPolyline, TVPolylineOverrides
 from .TVPriceLabel import TVPriceLabel, TVPriceLabelOverrides
 from .TVPriceNote import TVPriceNote, TVPriceNoteOverrides
+from .TVPriceRange import TVPriceRange, TVPriceRangeOverrides
 from .TVProjection import TVProjection, TVProjectionOverrides
+from .TVRay import TVRay, TVRayOverrides
 from .TVRectangle import TVRectangle, TVRectangleOverrides
 from .TVRegressionTrend import TVRegressionTrend, TVRegressionTrendOverrides
 from .TVRotatedRectangle import TVRotatedRectangle, TVRotatedRectangleOverrides
+from .TVSchiffPitchfork import TVSchiffPitchfork, TVSchiffPitchforkOverrides
+from .TVSchiffPitchforkModified import TVSchiffPitchforkModified, TVSchiffpitchfork2Overrides
+from .TVSignpost import TVSignpost, TVSignpostOverrides
+from .TVSineLine import TVSineLine, TVSineLineOverrides
+from .TVSticker import TVSticker, TVStickerOverrides
+from .TVTable import TVTable, TVTableOverrides
 from .TVText import TVText, TVTextOverrides
+from .TVTextNote import TVTextNote, TVTextNoteOverrides
+from .TVThreeDiversPattern import TVThreeDiversPattern, TVThreeDiversPatternOverrides
+from .TVTimeCycles import TVTimeCycles, TVTimeCyclesOverrides
 from .TVTrendAngle import TVTrendAngle, TVTrendAngleOverrides
 from .TVTrendLine import TVTrendLine, TVTrendLineOverrides
 from .TVTriangle import TVTriangle, TVTriangleOverrides
+from .TVTrianglePattern import TVTrianglePattern, TVTrianglePatternOverrides
 from .TVVerticalLine import TVVerticalLine, TVVerticalLineOverrides
+from .TVXabcdPattern import TVXabcdPattern, TVXabcdPatternOverrides
 
 
 __all__ = [
+    "TVArrowUp",
+    "TVArrowUpOverrides",
+    "TVArrowDown",
+    "TVArrowDownOverrides",
+    "TVArrowLeft",
+    "TVArrowLeftOverrides",
+    "TVArrowRight",
+    "TVArrowRightOverrides",
     "TVBaseShape",
     "TVShape",
     "TVShapePoint",
     "TVShapePosition",
     "TVSelection",
     "TVShapesGroupController",
+    "TVSingleShape",
+    "TVMultipleShape",
     "TVAbcdPattern",
     "TVAbcdPatternOverrides",
     "TVAnchorShape",
@@ -202,8 +234,14 @@ __all__ = [
     "TVInsidePitchforkOverrides",
     "TVLongPosition",
     "TVLongPositionOverrides",
+    "TVShortPosition",
+    "TVShortPositionOverrides",
     "TVNote",
     "TVNoteOverrides",
+    "TVParallelChannel",
+    "TVParallelChannelOverrides",
+    "TVPath",
+    "TVPathOverrides",
     "TVPitchfan",
     "TVPitchfanOverrides",
     "TVPitchfork",
@@ -214,32 +252,48 @@ __all__ = [
     "TVPriceLabelOverrides",
     "TVPriceNote",
     "TVPriceNoteOverrides",
+    "TVPriceRange",
+    "TVPriceRangeOverrides",
     "TVProjection",
     "TVProjectionOverrides",
+    "TVRay",
+    "TVRayOverrides",
     "TVRectangle",
     "TVRectangleOverrides",
     "TVRegressionTrend",
     "TVRegressionTrendOverrides",
     "TVRotatedRectangle",
     "TVRotatedRectangleOverrides",
+    "TVSchiffPitchfork",
+    "TVSchiffPitchforkOverrides",
+    "TVSchiffPitchforkModified",
+    "TVSchiffpitchfork2Overrides",
+    "TVSignpost",
+    "TVSignpostOverrides",
+    "TVSineLine",
+    "TVSineLineOverrides",
+    "TVSticker",
+    "TVStickerOverrides",
+    "TVTable",
+    "TVTableOverrides",
     "TVText",
     "TVTextOverrides",
+    "TVTextNote",
+    "TVTextNoteOverrides",
+    "TVThreeDiversPattern",
+    "TVThreeDiversPatternOverrides",
+    "TVTimeCycles",
+    "TVTimeCyclesOverrides",
     "TVTrendAngle",
     "TVTrendAngleOverrides",
     "TVTrendLine",
     "TVTrendLineOverrides",
     "TVTriangle",
     "TVTriangleOverrides",
+    "TVTrianglePattern",
+    "TVTrianglePatternOverrides",
     "TVVerticalLine",
     "TVVerticalLineOverrides",
-    "TVElliottDoubleCombo",
-    "TVElliottDoubleComboOverrides",
-    "TVElliottImpulseWave",
-    "TVElliottImpulseWaveOverrides",
-    "TVElliottTriangleWave",
-    "TVElliottTriangleWaveOverrides",
-    "TVExtended",
-    "TVExtendedOverrides",
-    "TVFlagMark",
-    "TVFlagMarkOverrides",
+    "TVXabcdPattern",
+    "TVXabcdPatternOverrides",
 ]
