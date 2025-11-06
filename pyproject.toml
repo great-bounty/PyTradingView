@@ -1,0 +1,65 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pytradingviewlib"
+version = "1.0.0"
+description = "A Python client library for TradingView Widget API. ✨Using Python to interact with TradingView📈, just like using JavaScript🚀🎉"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "LFC", email = "1531724247@qq.com"}
+]
+keywords = ["tradingview", "trading", "charting", "technical-analysis"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+dependencies = [
+    "websocket-client>=1.5.1",
+    "fastapi>=0.100.0",
+    "uvicorn>=0.23.0",
+    "pandas>=1.5.0",
+    "aiohttp>=3.8.0",
+    "pathlib>=1.0.1",
+    "pandas-ta>=0.3.14b0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0",
+    "ruff>=0.0.280",
+    "mypy>=1.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/great-bounty/PyTradingView"
+Documentation = "https://pytradingview.readthedocs.io"
+Repository = "https://github.com/great-bounty/PyTradingView"
+"Bug Tracker" = "https://github.com/great-bounty/pytradingview/issues"
+
+[project.scripts]
+pytradingview = "pytradingview.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["pytradingview*"]
+exclude = ["tests*", "examples*", "docs*", "scripts*"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38']
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "I"]

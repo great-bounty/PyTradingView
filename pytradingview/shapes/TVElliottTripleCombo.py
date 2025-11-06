@@ -1,0 +1,22 @@
+from .TVBaseShape import TVMultipleShapeType, TVBaseOverrides
+from .TVMultipleShape import TVMultipleShape
+from typing import Optional, Dict, Any
+
+class TVElliottTripleComboOverrides(TVBaseOverrides):
+
+    def __init__(self):
+        self.color = "#3d85c6"
+        self.degree = 7
+        self.line_width = 2
+        self.show_wave = True
+
+class TVElliottTripleCombo(TVMultipleShape):
+    
+    def __init__(self, overrides: Optional[TVElliottTripleComboOverrides] = None, **kwargs):
+        shape = TVMultipleShapeType.ElliottTripleCombo
+        if overrides is None:
+            super().__init__(shape=shape, **kwargs)
+        else:
+            super().__init__(shape=shape, overrides=overrides.to_json(), **kwargs)
+
+        
