@@ -13,7 +13,7 @@
 </div>
 
 TradingView Widget API 的 Python 客户端库。✨使用 Python 与 TradingView 交互📈，就像使用 JavaScript 一样🚀🎉
-⚠️ **提示:** 您需要下载并安装GUI-App,才能将你使用本库编写的技术指标正确的显示在TradingView图表上.您可以通过仓库的release模块下载合适的GUI-App软件版本.
+⚠️ **提示:** 您需要下载并安装GUI-App,才能将你使用本库编写的技术指标正确的显示在TradingView图表上.您可以通过仓库的release模块下载合适的GUI-App软件版本.或者您也可以[直接点击下载GUI-App](https://github.com/great-bounty/PyTradingView/releases/tag/latest-app)
 简体中文 | [English](README.md)
 
 ## 🌟 特性
