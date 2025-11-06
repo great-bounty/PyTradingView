@@ -1,8 +1,16 @@
 # PyTradingView
 
+<div align="center">
+  <img src="assets/icon.png" alt="PyTradingView Logo" width="128"/>
+</div>
+
+<div align="center">
+
 [![PyPI version](https://badge.fury.io/py/pytradingviewlib.svg)](https://badge.fury.io/py/pytradingviewlib)
 [![Python](https://img.shields.io/pypi/pyversions/pytradingviewlib.svg)](https://pypi.org/project/pytradingviewlib/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+</div>
 
 A Python client library for TradingView Widget API. ✨Using Python to interact with TradingView📈, just like using JavaScript🚀🎉
 

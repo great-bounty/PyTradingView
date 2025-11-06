@@ -23,7 +23,9 @@ keywords = [
     "tradingview",
     "trading",
     "typescript",
-    "vue"
+    "vue",
+    "binance",
+    "investing"
 ]
 classifiers = [
     "Development Status :: 5 - Production/Stable",

@@ -1,8 +1,16 @@
 # PyTradingView
 
+<div align="center">
+  <img src="assets/icon.png" alt="PyTradingView Logo" width="128"/>
+</div>
+
+<div align="center">
+
 [![PyPI version](https://badge.fury.io/py/pytradingviewlib.svg)](https://badge.fury.io/py/pytradingviewlib)
 [![Python](https://img.shields.io/pypi/pyversions/pytradingviewlib.svg)](https://pypi.org/project/pytradingviewlib/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+</div>
 
 TradingView Widget API 的 Python 客户端库。✨使用 Python 与 TradingView 交互📈，就像使用 JavaScript 一样🚀🎉
 
