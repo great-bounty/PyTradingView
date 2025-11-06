@@ -333,6 +333,25 @@ mypy pytradingview/
 - **文档**：[Read the Docs](https://pytradingview.readthedocs.io)
 - **讨论**：[GitHub Discussions](https://github.com/great-bounty/pytradingview/discussions)
 
+## 📞 联系我们
+
+欢迎通过以下任何方式与我们联系：
+
+### 微信 (WeChat)
+<div align="center">
+  <img src="assets/wechat_qrcode.png" alt="微信二维码" width="200"/>
+  <p><em>扫码添加微信</em></p>
+</div>
+
+### WhatsApp
+<div align="center">
+  <img src="assets/whatsapp_qrcode.png" alt="WhatsApp二维码" width="200"/>
+  <p><em>扫码WhatsApp联系</em></p>
+</div>
+
+### 邮箱 (Email)
+📧 **1531724247@qq.com**
+
 ## 🔗 链接
 
 - [PyPI 包](https://pypi.org/project/pytradingviewlib/)

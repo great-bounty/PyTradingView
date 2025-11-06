@@ -332,6 +332,25 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Documentation**: [Read the Docs](https://pytradingview.readthedocs.io)
 - **Discussions**: [GitHub Discussions](https://github.com/great-bounty/pytradingview/discussions)
 
+## 📞 Contact Us
+
+Feel free to reach out through any of the following channels:
+
+### WeChat
+<div align="center">
+  <img src="assets/wechat_qrcode.png" alt="WeChat QR Code" width="200"/>
+  <p><em>Scan to add on WeChat</em></p>
+</div>
+
+### WhatsApp
+<div align="center">
+  <img src="assets/whatsapp_qrcode.png" alt="WhatsApp QR Code" width="200"/>
+  <p><em>Scan to chat on WhatsApp</em></p>
+</div>
+
+### Email
+📧 **1531724247@qq.com**
+
 ## 🔗 Links
 
 - [PyPI Package](https://pypi.org/project/pytradingviewlib/)
