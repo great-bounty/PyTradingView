@@ -170,10 +170,6 @@ This is the first stable release of PyTradingView - a comprehensive Python clien
 
 ### 🎯 Python Support
 
-- Python 3.8
-- Python 3.9
-- Python 3.10
-- Python 3.11
 - Python 3.12
 
 ### 📄 License
