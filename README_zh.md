@@ -16,6 +16,20 @@ TradingView Widget API 的 Python 客户端库。✨使用 Python 与 TradingVie
 ⚠️ **提示:** 您需要下载并安装GUI-App,才能将你使用本库编写的技术指标正确的显示在TradingView图表上.您可以通过仓库的release模块下载合适的GUI-App软件版本.或者您也可以[直接点击下载GUI-App](https://github.com/great-bounty/PyTradingView/releases/tag/latest-app)
 简体中文 | [English](README.md)
 
+---
+
+<div align="center">
+
+### 📚 **[访问我们的 Wiki 获取全面的文档资料](https://github.com/great-bounty/PyTradingView/wiki)**
+
+*需要详细的指南、API 参考和高级教程？我们的 Wiki 提供了涵盖 PyTradingView 各个方面的详尽文档，从安装到高级功能应有尽有。*
+
+**[🔗 访问 Wiki 文档 →](https://github.com/great-bounty/PyTradingView/wiki)**
+
+</div>
+
+---
+
 ## 🌟 特性
 
 - **🎯 完整的 TradingView API 支持**：完整的 TradingView Advanced Charts API Python 实现

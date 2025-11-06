@@ -17,6 +17,20 @@ A Python client library for TradingView Widget API. ✨Using Python to interact 
 
 [简体中文](README_zh.md) | English
 
+---
+
+<div align="center">
+
+### 📚 **[Visit Our Wiki for Comprehensive Documentation](https://github.com/great-bounty/PyTradingView/wiki)**
+
+*Looking for detailed guides, API references, and advanced tutorials? Our Wiki provides extensive documentation covering all aspects of PyTradingView, from installation to advanced features.*
+
+**[🔗 Explore the Wiki →](https://github.com/great-bounty/PyTradingView/wiki)**
+
+</div>
+
+---
+
 ## 🌟 Features
 
 - **🎯 Full TradingView API Support**: Complete Python implementation of TradingView Advanced Charts API
