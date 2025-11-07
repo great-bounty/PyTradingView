@@ -17,6 +17,18 @@ A Python client library for TradingView Widget API. ✨Using Python to interact 
 
 [简体中文](README_zh.md) | English
 
+## 🌟 Features
+
+- **🎯 Full TradingView API Support**: Complete Python implementation of TradingView Advanced Charts API
+- **📊 Custom Indicators**: Build and deploy custom technical indicators with Python
+- **🎨 Rich Drawing Tools**: Support for 100+ shape types (trendlines, arrows, patterns, etc.)
+- **📈 Real-time Data Integration**: Custom datafeed interface for real-time market data
+- **⚡ High Performance**: Asynchronous architecture with WebSocket support
+- **🔧 Easy Configuration**: Pythonic API design with intuitive configuration
+- **🎭 Multi-Chart Support**: Manage multiple charts simultaneously
+- **🌈 Theme Customization**: Full theme and styling customization
+- **📦 Modular Design**: Clean separation of concerns with modular architecture
+
 ---
 
 <div align="center">
@@ -30,18 +42,6 @@ A Python client library for TradingView Widget API. ✨Using Python to interact 
 </div>
 
 ---
-
-## 🌟 Features
-
-- **🎯 Full TradingView API Support**: Complete Python implementation of TradingView Advanced Charts API
-- **📊 Custom Indicators**: Build and deploy custom technical indicators with Python
-- **🎨 Rich Drawing Tools**: Support for 100+ shape types (trendlines, arrows, patterns, etc.)
-- **📈 Real-time Data Integration**: Custom datafeed interface for real-time market data
-- **⚡ High Performance**: Asynchronous architecture with WebSocket support
-- **🔧 Easy Configuration**: Pythonic API design with intuitive configuration
-- **🎭 Multi-Chart Support**: Manage multiple charts simultaneously
-- **🌈 Theme Customization**: Full theme and styling customization
-- **📦 Modular Design**: Clean separation of concerns with modular architecture
 
 ## 📋 Requirements
 

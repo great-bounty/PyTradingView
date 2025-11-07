@@ -16,6 +16,18 @@ TradingView Widget API 的 Python 客户端库。✨使用 Python 与 TradingVie
 ⚠️ **提示:** 您需要下载并安装GUI-App,才能将你使用本库编写的技术指标正确的显示在TradingView图表上.您可以通过仓库的release模块下载合适的GUI-App软件版本.或者您也可以[直接点击下载GUI-App](https://github.com/great-bounty/PyTradingView/releases/tag/latest-app)
 简体中文 | [English](README.md)
 
+## 🌟 特性
+
+- **🎯 完整的 TradingView API 支持**：完整的 TradingView Advanced Charts API Python 实现
+- **📊 自定义指标**：使用 Python 构建和部署自定义技术指标
+- **🎨 丰富的绘图工具**：支持 100+ 种形状类型（趋势线、箭头、图案等）
+- **📈 实时数据集成**：自定义数据源接口，支持实时市场数据
+- **⚡ 高性能**：异步架构，支持 WebSocket
+- **🔧 简单配置**：Pythonic API 设计，配置直观
+- **🎭 多图表支持**：同时管理多个图表
+- **🌈 主题定制**：完整的主题和样式自定义
+- **📦 模块化设计**：清晰的模块分离，高可维护性
+
 ---
 
 <div align="center">
@@ -29,18 +41,6 @@ TradingView Widget API 的 Python 客户端库。✨使用 Python 与 TradingVie
 </div>
 
 ---
-
-## 🌟 特性
-
-- **🎯 完整的 TradingView API 支持**：完整的 TradingView Advanced Charts API Python 实现
-- **📊 自定义指标**：使用 Python 构建和部署自定义技术指标
-- **🎨 丰富的绘图工具**：支持 100+ 种形状类型（趋势线、箭头、图案等）
-- **📈 实时数据集成**：自定义数据源接口，支持实时市场数据
-- **⚡ 高性能**：异步架构，支持 WebSocket
-- **🔧 简单配置**：Pythonic API 设计，配置直观
-- **🎭 多图表支持**：同时管理多个图表
-- **🌈 主题定制**：完整的主题和样式自定义
-- **📦 模块化设计**：清晰的模块分离，高可维护性
 
 ## 📋 要求
 
