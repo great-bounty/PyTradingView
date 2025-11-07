@@ -7,7 +7,7 @@ name = "pytradingviewlib"
 version = "1.0.2"
 description = "A Python client library for TradingView Widget API. ✨Using Python to interact with TradingView📈, just like using JavaScript🚀🎉"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.12"
 license = {text = "MIT"}
 authors = [
     {name = "LFC", email = "1531724247@qq.com"}
