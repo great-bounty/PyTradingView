@@ -301,7 +301,23 @@ class TVEngineRuntime(TVEngineDrawing):
     
     async def _setup_chart_data_listener(self, widget: 'TVWidget', chart: 'TVChart', 
                                          chart_id: str, chart_index: int) -> None:
-        """Set up data loading listener for a single chart"""
+        """
+        Set up data loading listener for a single chart
+        
+        This method performs two key operations:
+        1. Subscribes to future data loading events (onDataLoaded)
+        2. Immediately triggers initial indicator calculation for already-loaded data
+        
+        The immediate trigger is necessary because when chart data is ready,
+        the onDataLoaded event may not fire again, so we manually invoke
+        the callback to ensure indicators are calculated at least once.
+        
+        Args:
+            widget: TVWidget instance
+            chart: TVChart instance
+            chart_id: Unique chart identifier
+            chart_index: Chart index in the layout
+        """
         from ...models.TVExportedData import TVExportedData
         
         async def on_data_loaded_callback(**kwargs):  # type: ignore
@@ -343,6 +359,13 @@ class TVEngineRuntime(TVEngineDrawing):
             
             await chart.exportData(callback=export_callback)
         
-        # Subscribe to data loading events
+        # Subscribe to future data loading events
         subscription = await chart.onDataLoaded()
         await subscription.subscribe(callback=on_data_loaded_callback)
+        
+        # Trigger initial indicator calculation immediately
+        # This is crucial: when _handle_chart_data_ready is called, the chart data
+        # is already loaded, but onDataLoaded event won't fire again. We must
+        # manually trigger the callback once to calculate indicators on existing data.
+        logger.debug(f"Triggering initial indicator calculation for {chart_id}")
+        await on_data_loaded_callback()

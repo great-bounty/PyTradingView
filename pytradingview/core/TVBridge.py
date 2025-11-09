@@ -67,10 +67,15 @@ class TVBridge(object):
     
     def register_chart_ready_callback(self, callback: Callable[['TVWidget'], Awaitable[None]]) -> None:
         """
-        注册图表就绪回调（由 TVEngine 调用）
+        Register chart ready callback (called by TVEngine)
+        
+        This callback will be invoked when chart data is ready, triggering:
+        - Chart initialization
+        - Indicator activation
+        - Initial indicator calculation on loaded data
         
         Args:
-            callback: 图表就绪时的异步回调函数
+            callback: Async callback function to execute when chart is ready
         """
         self._chart_ready_callback = callback
         logger.info("Chart ready callback registered")
@@ -171,9 +176,22 @@ class TVBridge(object):
 
     async def _handle_chart_data_ready(self, call_params: TVMethodCall):
         """
-        处理图表数据就绪事件
+        Handle chart data ready event
         
-        调用注册的回调函数（由 TVEngine 注册）
+        This method is triggered when TradingView chart completes initialization
+        and chart data has been successfully loaded. At this point, K-line data
+        is ready and we can safely perform indicator calculations.
+        
+        Flow:
+        1. Retrieve TVWidget instance from object_id
+        2. Invoke registered chart_ready_callback (set by TVEngine)
+        3. The callback will initialize all charts and trigger indicator calculations
+        
+        Note: This is a critical entry point that bridges TradingView's JavaScript
+        environment with Python indicator engine.
+        
+        Args:
+            call_params: RPC call parameters containing widget object_id
         """
         try:
             from .TVWidget import TVWidget
