@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pytradingviewlib"
-version = "1.0.5"
+version = "1.0.6"
 description = "A Python client library for TradingView Widget API. ✨Using Python to interact with TradingView📈, just like using JavaScript🚀🎉"
 readme = "README.md"
 requires-python = ">=3.12"

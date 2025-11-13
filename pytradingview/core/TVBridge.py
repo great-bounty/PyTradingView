@@ -85,7 +85,7 @@ class TVBridge(object):
         self._register_rpc_routes()
 
     def _register_connection_routes(self):
-        @self.bridge_http_app.post("/ping")
+        @self.bridge_http_app.get("/ping")
         async def ping():
             return { 'pong': 'PY HTTP server running' }
 
