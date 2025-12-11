@@ -6,7 +6,7 @@ from threading import Event
 from typing import Dict, Any, Optional, TYPE_CHECKING, Callable, Awaitable
 import os
 import sys
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 import aiohttp
@@ -38,7 +38,7 @@ class TVBridge(object):
         self.is_connected_to_node = False
         
         self.bridge_port = 6100
-        self.bridge_http_app = FastAPI()
+        self.bridge_http_app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
         self.start_event = Event()
         
         # TVEngine 集成
@@ -86,20 +86,21 @@ class TVBridge(object):
 
     def _register_connection_routes(self):
         @self.bridge_http_app.get("/ping")
-        async def ping():
+        async def ping(request: Request):
             return { 'pong': 'PY HTTP server running' }
 
         @self.bridge_http_app.post("/connect/from/nd")
-        async def connect_from_nd():
+        async def connect_from_nd(request: Request):
             return {"bridge_port": self.bridge_port}
         
         @self.bridge_http_app.post("/ping/from/nd")
-        async def ping_from_nd():
+        async def ping_from_nd(request: Request):
             return {"bridge_port": self.bridge_port}
 
     def _register_rpc_routes(self):
         @self.bridge_http_app.post("/web/call/py")
-        async def web_call_py(data: dict):
+        async def web_call_py(request: Request):
+            data = await request.json()
             return await self._handle_web_to_python_call(data)
 
     async def _handle_web_to_python_call(self, data: Dict[str, Any]) -> TVMethodResponse:
