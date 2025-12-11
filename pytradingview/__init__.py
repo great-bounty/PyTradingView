@@ -4,7 +4,7 @@ This package provides a Pythonic interface to the TradingView Advanced Charts AP
 allowing you to create and interact with TradingView charts programmatically.
 """
 
-__version__ = "1.0.6"
+__version__ = "1.0.7"
 
 # Core exports
 from .core import (
