@@ -67,13 +67,13 @@ class IndicatorRegistry:
         
         # Check if already registered
         if indicator_name in self._indicators:
-            logger.warning(f"Indicator '{indicator_name}' is already registered. Overwriting...")
+            None
         
         # Register indicator
         self._indicators[indicator_name] = indicator_class
         self._enabled_indicators[indicator_name] = enabled
         
-        logger.info(f"Registered indicator: {indicator_name} (enabled={enabled})")
+        None
     
     def unregister(self, name: str) -> bool:
         """
@@ -88,10 +88,10 @@ class IndicatorRegistry:
         if name in self._indicators:
             del self._indicators[name]
             del self._enabled_indicators[name]
-            logger.info(f"Unregistered indicator: {name}")
+            None
             return True
         else:
-            logger.warning(f"Indicator '{name}' not found in registry")
+            None
             return False
     
     def get(self, name: str) -> Optional[Type[TVIndicator]]:
@@ -123,7 +123,7 @@ class IndicatorRegistry:
         
         try:
             instance = indicator_class()
-            logger.debug(f"Created instance of indicator: {name}")
+            None
             return instance
         except Exception as e:
             logger.error(f"Failed to create instance of indicator '{name}': {e}")
@@ -165,10 +165,10 @@ class IndicatorRegistry:
         """
         if name in self._indicators:
             self._enabled_indicators[name] = True
-            logger.info(f"Enabled indicator: {name}")
+            None
             return True
         else:
-            logger.warning(f"Indicator '{name}' not found in registry")
+            None
             return False
     
     def disable(self, name: str) -> bool:
@@ -183,10 +183,10 @@ class IndicatorRegistry:
         """
         if name in self._indicators:
             self._enabled_indicators[name] = False
-            logger.info(f"Disabled indicator: {name}")
+            None
             return True
         else:
-            logger.warning(f"Indicator '{name}' not found in registry")
+            None
             return False
     
     def list_all(self) -> List[str]:
@@ -211,7 +211,7 @@ class IndicatorRegistry:
         """Clear registry"""
         self._indicators.clear()
         self._enabled_indicators.clear()
-        logger.info("Cleared indicator registry")
+        None
     
     def get_info(self) -> Dict[str, Dict[str, Any]]:
         """

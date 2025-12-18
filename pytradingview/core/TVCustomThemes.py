@@ -25,10 +25,10 @@ class TVCustomThemes(TVObject):
             method_name=sys._getframe(0).f_code.co_name,
             kwargs={"customThemes": customThemes},
         )
-        logger.info(f"applyCustomThemes completed")
+        None
 
     async def applyCustomThemesCallback(self) -> None:
-        logger.info("applyCustomThemesCallback: received from frontend")
+        None
         if (
             hasattr(self, "applyCustomThemes_callback")
             and self.applyCustomThemes_callback
@@ -43,10 +43,10 @@ class TVCustomThemes(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"resetCustomThemes completed")
+        None
 
     async def resetCustomThemesCallback(self) -> None:
-        logger.info("resetCustomThemesCallback: received from frontend")
+        None
         if (
             hasattr(self, "resetCustomThemes_callback")
             and self.resetCustomThemes_callback

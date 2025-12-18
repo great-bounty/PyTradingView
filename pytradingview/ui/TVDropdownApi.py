@@ -28,7 +28,7 @@ class TVDropdownApi(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"options": options}
         )
-        logger.info(f"applyOptions: {resp.result}")
+        None
 
     async def remove(self) -> None:
         """
@@ -37,4 +37,4 @@ class TVDropdownApi(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"remove: {resp.result}")
+        None

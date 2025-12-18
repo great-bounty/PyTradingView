@@ -67,7 +67,7 @@ class TVEngineLoader(TVEngineSingleton):
                     indicator_classes.append(attr)
             
             if not indicator_classes:
-                logger.warning(f"No indicator class found in {file_path}")
+                None
                 return False
             
             # Register all found indicator classes
@@ -82,14 +82,14 @@ class TVEngineLoader(TVEngineSingleton):
                 if registry.is_registered(class_name):
                     registered_class = registry.get(class_name)
                     if registered_class is indicator_class:
-                        logger.debug(f"Indicator '{class_name}' already registered, skipping auto-registration")
+                        None
                         already_registered = True
                 
                 # Check if registered under another name (via decorator)
                 if not already_registered:
                     for reg_name in registry.list_all():
                         if registry.get(reg_name) is indicator_class:
-                            logger.debug(f"Indicator class '{class_name}' already registered as '{reg_name}', skipping auto-registration")
+                            None
                             already_registered = True
                             break
                 
@@ -102,14 +102,14 @@ class TVEngineLoader(TVEngineSingleton):
                         config = temp_instance.get_config()
                         if config and hasattr(config, 'enabled'):
                             enabled = config.enabled
-                            logger.debug(f"Using enabled={enabled} from indicator config")
+                            None
                     except Exception as e:
-                        logger.debug(f"Could not read config from {class_name}, using default enabled=True: {e}")
+                        None
                     
                     registry.register(indicator_class, enabled=enabled)
-                    logger.info(f"Loaded indicator: {indicator_class.__name__} from {file_path} (enabled={enabled})")
+                    None
                 else:
-                    logger.info(f"Indicator {indicator_class.__name__} from {file_path} was already registered (possibly via decorator)")
+                    None
             
             return True
             
@@ -143,5 +143,5 @@ class TVEngineLoader(TVEngineSingleton):
             if self.load_indicator_from_file(str(file_path)):
                 loaded_count += 1
         
-        logger.info(f"Loaded {loaded_count} indicators from {directory}")
+        None
         return loaded_count

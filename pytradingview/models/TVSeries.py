@@ -42,7 +42,7 @@ class TVSeries(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"enabled": enabled}
         )
-        logger.info(f"setUserEditEnabled: {resp.result}")
+        None
 
     async def mergeUp(self) -> None:
         """
@@ -51,7 +51,7 @@ class TVSeries(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"mergeUp: {resp.result}")
+        None
 
     async def mergeDown(self) -> None:
         """
@@ -60,7 +60,7 @@ class TVSeries(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"mergeDown: {resp.result}")
+        None
 
     async def unmergeUp(self) -> None:
         """
@@ -69,7 +69,7 @@ class TVSeries(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"unmergeUp: {resp.result}")
+        None
 
     async def unmergeDown(self) -> None:
         """
@@ -78,7 +78,7 @@ class TVSeries(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"unmergeDown: {resp.result}")
+        None
 
     async def detachToRight(self) -> None:
         """
@@ -87,7 +87,7 @@ class TVSeries(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"detachToRight: {resp.result}")
+        None
 
     async def detachToLeft(self) -> None:
         """
@@ -96,7 +96,7 @@ class TVSeries(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"detachToLeft: {resp.result}")
+        None
 
     async def detachNoScale(self) -> None:
         """
@@ -105,7 +105,7 @@ class TVSeries(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"detachNoScale: {resp.result}")
+        None
 
     async def changePriceScale(self, newPriceScale: SeriesPriceScale) -> None:
         """
@@ -117,7 +117,7 @@ class TVSeries(TVObject):
             method_name=sys._getframe(0).f_code.co_name,
             kwargs={"newPriceScale": newPriceScale},
         )
-        logger.info(f"changePriceScale: {resp.result}")
+        None
 
     async def isVisible(self) -> bool:
         """
@@ -139,7 +139,7 @@ class TVSeries(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"visible": visible}
         )
-        logger.info(f"setVisible: {resp.result}")
+        None
 
     async def bringToFront(self) -> None:
         """
@@ -148,7 +148,7 @@ class TVSeries(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"bringToFront: {resp.result}")
+        None
 
     async def sendToBack(self) -> None:
         """
@@ -157,7 +157,7 @@ class TVSeries(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"sendToBack: {resp.result}")
+        None
 
     async def entityId(self) -> EntityId:
         """
@@ -196,4 +196,4 @@ class TVSeries(TVObject):
             method_name=sys._getframe(0).f_code.co_name,
             kwargs={"chartStyle": chartStyle, "newPrefs": newPrefs},
         )
-        logger.info(f"setChartStyleProperties: {resp.result}")
+        None

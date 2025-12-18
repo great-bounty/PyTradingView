@@ -50,7 +50,7 @@ class TVEngineConfig(TVEngineManager):
             self: Support for chaining calls
         """
         self.config.update(config_dict)
-        logger.info(f"Engine config updated: {config_dict}")
+        None
         return self
     
     def get_config(self) -> Dict[str, Any]:
@@ -90,11 +90,11 @@ class TVEngineConfig(TVEngineManager):
         """
         context = self._get_chart_context(chart_id)  # type: ignore
         if not context:
-            logger.warning(f"Chart context not found")
+            None
             return None
         
         if not context.has_indicator(name):
-            logger.warning(f"Indicator '{name}' is not active on chart '{context.chart_id}'")
+            None
             return None
         
         indicator = context.get_indicator(name)

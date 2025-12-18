@@ -28,7 +28,7 @@ class TVWidgetbar(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"pageName": pageName}
         )
-        logger.info(f"showPage: {resp.result}")
+        None
 
     async def hidePage(self, pageName: PageName) -> None:
         """
@@ -39,7 +39,7 @@ class TVWidgetbar(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"pageName": pageName}
         )
-        logger.info(f"hidePage: {resp.result}")
+        None
 
     async def isPageVisible(self, pageName: PageName) -> bool:
         """
@@ -60,7 +60,7 @@ class TVWidgetbar(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"openOrderPanel: {resp.result}")
+        None
 
     async def closeOrderPanel(self) -> None:
         """
@@ -69,7 +69,7 @@ class TVWidgetbar(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"closeOrderPanel: {resp.result}")
+        None
 
     async def changeWidgetBarVisibility(self, visible: bool) -> None:
         """
@@ -80,7 +80,7 @@ class TVWidgetbar(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"visible": visible}
         )
-        logger.info(f"changeWidgetBarVisibility: {resp.result}")
+        None
 
     async def destroy(self) -> None:
         """
@@ -90,6 +90,6 @@ class TVWidgetbar(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"destroy: {resp.result}")
+        None
         # Call parent class dispose method to clean up object pool
         super().dispose()

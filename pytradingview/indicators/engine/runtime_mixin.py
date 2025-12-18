@@ -39,10 +39,7 @@ class TVEngineRuntime(TVEngineDrawing):
         # Prevent duplicate initialization
         if hasattr(self, '_initialized') and self._initialized:  # type: ignore
             if config is not None:
-                logger.warning(
-                    "TVEngine is already initialized. "
-                    "Use update_config() to modify configuration."
-                )
+                None
             return
         
         from ...core.TVWidgetConfig import TVWidgetConfig
@@ -64,7 +61,7 @@ class TVEngineRuntime(TVEngineDrawing):
         # Mark as initialized
         self._initialized = True
         
-        logger.info("TVEngine singleton initialized")
+        None
     
     def setup(self, 
              indicators_dir: Optional[str] = None,
@@ -123,7 +120,7 @@ class TVEngineRuntime(TVEngineDrawing):
         if not self.config.validate():  # type: ignore
             raise ValueError("Invalid widget configuration")
         
-        logger.info(f"Widget config: {self.config}")  # type: ignore
+        None  # type: ignore
         
         # === 2. Load indicators ===
         
@@ -145,10 +142,10 @@ class TVEngineRuntime(TVEngineDrawing):
         
         # === 5. Start Bridge service ===
         
-        logger.info("="*60)
-        logger.info("Starting Indicator Engine...")
-        logger.info(f"Config: {self.config}")  # type: ignore
-        logger.info("="*60)
+        None
+        None
+        None  # type: ignore
+        None
         
         # Publish start event
         self.event_bus.publish_sync(  # type: ignore
@@ -205,15 +202,15 @@ class TVEngineRuntime(TVEngineDrawing):
         
         # Subscribe to layout_changed event
         await widget.subscribe('layout_changed', on_layout_changed_sync)  # type: ignore
-        logger.info("Subscribed to layout_changed event")
+        None
     
     async def _handle_layout_changed(self, widget: 'TVWidget') -> None:
         """
         Handle layout switch event
         """
-        logger.info("="*60)
-        logger.info("Layout changed detected - Reinitializing charts...")
-        logger.info("="*60)
+        None
+        None
+        None
         
         # Clean up old chart contexts
         await self._cleanup_all_charts()
@@ -221,7 +218,7 @@ class TVEngineRuntime(TVEngineDrawing):
         # Reinitialize all charts
         await self._initialize_all_charts(widget)
         
-        logger.info("Chart reinitialization completed")
+        None
     
     async def _initialize_all_charts(self, widget: 'TVWidget') -> None:
         """
@@ -231,7 +228,7 @@ class TVEngineRuntime(TVEngineDrawing):
         """
         # Get chart count
         charts_count = await widget.chartsCount()
-        logger.info(f"Initializing {charts_count} chart(s)...")
+        None
         
         # Create context and set up event listeners for each chart
         for chart_index in range(charts_count):
@@ -240,7 +237,7 @@ class TVEngineRuntime(TVEngineDrawing):
             
             # Create chart context
             context = self.chart_context_manager.create_context(chart_id, chart)
-            logger.info(f"Created context for {chart_id}")
+            None
             
             # Activate default indicators (if configured)
             await self._activate_default_indicators_for_chart(chart_id)
@@ -260,14 +257,14 @@ class TVEngineRuntime(TVEngineDrawing):
         if not enabled_indicators:
             return
         
-        logger.info(f"Activating default indicators for {chart_id}: {enabled_indicators}")
+        None
         
         for name in enabled_indicators:
             success = self.activate_indicator(name, chart_id)  # type: ignore
             if success:
-                logger.debug(f"Activated '{name}' on {chart_id}")
+                None
             else:
-                logger.warning(f"Failed to activate '{name}' on {chart_id}")
+                None
     
     async def _cleanup_all_charts(self) -> None:
         """
@@ -280,7 +277,7 @@ class TVEngineRuntime(TVEngineDrawing):
         if not contexts:
             return
         
-        logger.info(f"Cleaning up {len(contexts)} chart context(s)...")
+        None
         
         # Deactivate all indicators on all charts
         for chart_id in list(contexts.keys()):
@@ -297,7 +294,7 @@ class TVEngineRuntime(TVEngineDrawing):
         
         # Clear all contexts
         self.chart_context_manager.clear_all()  # type: ignore
-        logger.info("All chart contexts cleared")
+        None
     
     async def _setup_chart_data_listener(self, widget: 'TVWidget', chart: 'TVChart', 
                                          chart_id: str, chart_index: int) -> None:
@@ -321,7 +318,7 @@ class TVEngineRuntime(TVEngineDrawing):
         from ...models.TVExportedData import TVExportedData
         
         async def on_data_loaded_callback(**kwargs):  # type: ignore
-            logger.info(f"Data loaded for {chart_id} (index={chart_index})")
+            None
             
             # Get chart context
             context = self.chart_context_manager.get_context(chart_id)
@@ -332,7 +329,7 @@ class TVEngineRuntime(TVEngineDrawing):
             # Initialize all active indicators on this chart
             for name, indicator in context.active_indicators.items():
                 indicator.on_init(widget, chart, chart_id)
-                logger.debug(f"Initialized indicator '{name}' on {chart_id}")
+                None
             
             async def export_callback(**export_kwargs):  # type: ignore
                 exported_data_dict = export_kwargs.get("exportedData") or {}
@@ -349,11 +346,7 @@ class TVEngineRuntime(TVEngineDrawing):
                 # Print result summary
                 for name, result in results.items():
                     if result['success']:
-                        logger.info(
-                            f"[{chart_id}] Indicator '{name}': "
-                            f"{len(result['signals'])} signals, "
-                            f"{len(result['drawables'])} drawables"
-                        )
+                        None
                     else:
                         logger.error(f"[{chart_id}] Indicator '{name}' failed: {result['error']}")
             
@@ -367,5 +360,5 @@ class TVEngineRuntime(TVEngineDrawing):
         # This is crucial: when _handle_chart_data_ready is called, the chart data
         # is already loaded, but onDataLoaded event won't fire again. We must
         # manually trigger the callback once to calculate indicators on existing data.
-        logger.debug(f"Triggering initial indicator calculation for {chart_id}")
+        None
         await on_data_loaded_callback()

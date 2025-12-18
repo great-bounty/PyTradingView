@@ -73,7 +73,7 @@ class TVWidget(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"url": url}
         )
-        logger.info(f"addCustomCSSFile: {resp.result}")
+        None
 
     async def applyOverrides(self, overrides: Dict[str, Any]) -> None:
         """Applies chart property overrides without reloading the chart.
@@ -84,7 +84,7 @@ class TVWidget(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"overrides": overrides}
         )
-        logger.info(f"applyOverrides: {resp.result}")
+        None
 
     async def applyStudiesOverrides(self, overrides: Dict[str, Any]) -> None:
         """Applies study (indicator) style and input overrides without reloading.
@@ -95,7 +95,7 @@ class TVWidget(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"overrides": overrides}
         )
-        logger.info(f"applyStudiesOverrides: {resp.result}")
+        None
 
     async def applyTradingCustomization(self, config: Dict[str, Any]) -> None:
         """Applies trading customization settings (for order/position line styling, etc.).
@@ -106,7 +106,7 @@ class TVWidget(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"config": config}
         )
-        logger.info(f"applyTradingCustomization: {resp.result}")
+        None
 
     async def changeTheme(self, theme_name: str, options: Optional[Dict] = None, callback: CallBackParams = None) -> None:
         """Changes the chart theme.
@@ -122,7 +122,7 @@ class TVWidget(TVObject):
             method_name=sys._getframe(0).f_code.co_name,
             kwargs={"theme_name": theme_name, "options": options},
         )
-        logger.info(f"changeTheme: {resp.result}")
+        None
 
     async def changeThemeCallback(self) -> None:
         """Callback method invoked by frontend TypeScript after changeTheme Promise resolves.
@@ -132,7 +132,7 @@ class TVWidget(TVObject):
         
         Note: This is a synchronous method called by the remote invocation framework.
         """
-        logger.info("changeThemeCallback: received from frontend")
+        None
         if self.changeTheme_callback:
             await self.handleCallbackFunction(callback=self.changeTheme_callback)
 
@@ -170,7 +170,7 @@ class TVWidget(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"clearUndoHistory: {resp.result}")
+        None
 
     async def closePopupsAndDialogs(self) -> None:
         """Closes all open context menus, popups, or dialogs.
@@ -178,7 +178,7 @@ class TVWidget(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"closePopupsAndDialogs: {resp.result}")
+        None
 
     async def createButton(self, options: Dict[str, Any]) -> TVHMElement:
         """Creates a button on the top toolbar.
@@ -288,7 +288,7 @@ class TVWidget(TVObject):
             index: Index of the clicked menu item
             title: Title of the clicked menu item
         """
-        logger.info(f"onDropdownItemSelect: index={index}, title={title}")
+        None
         
         if hasattr(self, 'dropdown_items_callbacks') and \
            0 <= index < len(self.dropdown_items_callbacks):
@@ -392,7 +392,7 @@ class TVWidget(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"exitFullscreen: {resp.result}")
+        None
 
     async def getCSSCustomPropertyValue(self, name: str) -> str:
         """Returns the current value of a CSS custom property.
@@ -505,7 +505,7 @@ class TVWidget(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"headerReady: {resp.result}")
+        None
 
 
     async def headerReadyCallback(self) -> None:
@@ -516,7 +516,7 @@ class TVWidget(TVObject):
         
         Note: This is a synchronous method called by the remote invocation framework.
         """
-        logger.info("headerReadyCallback: received from frontend")
+        None
         if self.headerReady_callback:
             await self.handleCallbackFunction(callback=self.headerReady_callback)
             self.headerReady_callback = None
@@ -580,7 +580,7 @@ class TVWidget(TVObject):
             method_name=sys._getframe(0).f_code.co_name,
             kwargs={"state": state, "extended_data": extended_data},
         )
-        logger.info(f"load: {resp.result}")
+        None
 
     async def loadChartFromServer(self, record: Dict[str, Any]) -> None:
         """Loads a saved chart from the server.
@@ -591,7 +591,7 @@ class TVWidget(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"record": record}
         )
-        logger.info(f"loadChartFromServer: {resp.result}")
+        None
 
     async def lockAllDrawingTools(self) -> TVWatchedValue[bool]:
         """Returns a WatchedValue for the 'Lock All Drawing Tools' button state.
@@ -672,11 +672,11 @@ class TVWidget(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"onChartReady: {resp.result}")
+        None
         
         
     async def onChartReadyCallback(self) -> None:
-        logger.info("onChartReadyCallback: received from frontend")
+        None
         if self.onChartReady_callback:
             await self.handleCallbackFunction(callback=self.onChartReady_callback)
             self.onChartReady_callback = None
@@ -698,12 +698,12 @@ class TVWidget(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"itemList": itemListProxy}
         )
-        logger.info(f"onContextMenuProxy: {resp.result}")
+        None
 
     async def onContextMenuItemClick(self, index: int, text: str, unixTime: int, price: float) -> None:
         itemInfo: TVContextMenuItem = self.onContextMenu_itemList[index]
 
-        logger.info(f"onContextMenuItemClick: {index}, {text}, {unixTime}, {price}")
+        None
         if hasattr(itemInfo, "click"):
             await self.handleCallbackFunction(callback=itemInfo.click, index=index, text=text, unixTime=unixTime, price=price)
 
@@ -718,7 +718,7 @@ class TVWidget(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(msg=f"onGrayedObjectClicked: {resp.result}")
+        None
 
     async def onGrayedObjectClickedCallback(self, obj: dict) -> None:
         if self.onGrayedObjectClicked_callback:
@@ -736,10 +736,10 @@ class TVWidget(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"shortCut":shortCut}
         )
-        logger.info(msg=f"onShortcut: {resp.result}")
+        None
 
     async def  onShortcutCallback(self, shortCut: Any):
-        logger.info(msg=f"onShortcutCallback: {shortCut}")
+        None
         for info in self.onShortcutInfos:
             if info["shortCut"] == shortCut:
                 await self.handleCallbackFunction(callback=info["callback"])
@@ -764,7 +764,7 @@ class TVWidget(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"remove: {resp.result}")
+        None
 
     async def removeButton(self, button_id: str) -> None:
         """Removes a button from the top toolbar.
@@ -775,7 +775,7 @@ class TVWidget(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"button_id": button_id}
         )
-        logger.info(f"removeButton: {resp.result}")
+        None
 
     async def removeChartFromServer(self, chart_id: Union[str, int]) -> None:
         """Deletes a saved chart from the server.
@@ -786,7 +786,7 @@ class TVWidget(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"chart_id": chart_id}
         )
-        logger.info(f"removeChartFromServer: {resp.result}")
+        None
 
     async def resetCache(self) -> None:
         """Resets cached data for all symbols.
@@ -796,7 +796,7 @@ class TVWidget(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"resetCache: {resp.result}")
+        None
 
     async def resetLayoutSizes(self, disable_undo: bool = False) -> None:
         """Resets the sizes of all charts in a multi-chart layout to default values.
@@ -808,7 +808,7 @@ class TVWidget(TVObject):
             method_name=sys._getframe(0).f_code.co_name,
             kwargs={"disable_undo": disable_undo},
         )
-        logger.info(f"resetLayoutSizes: {resp.result}")
+        None
 
     async def save(self, options: Optional[Dict] = None) -> Dict[str, Any]:
         """Saves the current chart state to an object (low-level API).
@@ -833,7 +833,7 @@ class TVWidget(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"options": options}
         )
-        logger.info(f"saveChartToServer: {resp.result}")
+        None
 
     async def selectLineTool(self, linetool: str, options: Optional[Dict] = None) -> None:
         """Selects a drawing tool or cursor (simulates clicking the left toolbar).
@@ -846,7 +846,7 @@ class TVWidget(TVObject):
             method_name=sys._getframe(0).f_code.co_name,
             kwargs={"linetool": linetool, "options": options},
         )
-        logger.info(f"selectLineTool: {resp.result}")
+        None
 
     async def selectedLineTool(self) -> str:
         """Returns the currently selected drawing tool or cursor.
@@ -868,7 +868,7 @@ class TVWidget(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"index": index}
         )
-        logger.info(f"setActiveChart: {resp.result}")
+        None
 
     async def setCSSCustomProperty(self, name: str, value: str) -> None:
         """Sets a CSS custom property value.
@@ -881,7 +881,7 @@ class TVWidget(TVObject):
             method_name=sys._getframe(0).f_code.co_name,
             kwargs={"name": name, "value": value},
         )
-        logger.info(f"setCSSCustomProperty: {resp.result}")
+        None
 
     async def setDebugMode(self, enabled: bool) -> None:
         """Enables/disables verbose logging of Datafeed API to the console.
@@ -892,7 +892,7 @@ class TVWidget(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"enabled": enabled}
         )
-        logger.info(f"setDebugMode: {resp.result}")
+        None
 
     async def setLayout(self, layout: str) -> None:
         """Sets the chart layout type.
@@ -903,7 +903,7 @@ class TVWidget(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"layout": layout}
         )
-        logger.info(f"setLayout: {resp.result}")
+        None
 
     async def setLayoutSizes(self, sizes: Dict[str, Any], disable_undo: bool = False) -> None:
         """Sets the sizes of each chart in a multi-chart layout.
@@ -916,7 +916,7 @@ class TVWidget(TVObject):
             method_name=sys._getframe(0).f_code.co_name,
             kwargs={"sizes": sizes, "disable_undo": disable_undo},
         )
-        logger.info(f"setLayoutSizes: {resp.result}")
+        None
 
     async def setSymbol(self, symbol: str, interval: str, callback: CallBackParams) -> None:
         """Sets the symbol and interval for the active chart.
@@ -935,7 +935,7 @@ class TVWidget(TVObject):
                 "interval": interval
             }
         )
-        logger.info(f"setSymbol: {resp.result}")
+        None
 
     async def setSymbolCallback(self) -> None:
         if self.setSymbol_callback:
@@ -950,7 +950,7 @@ class TVWidget(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"params": params}
         )
-        logger.info(f"showConfirmDialog: {resp.result}")
+        None
 
     async def showLoadChartDialog(self) -> None:
         """Displays the 'Load Chart Layout' dialog.
@@ -958,7 +958,7 @@ class TVWidget(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"showLoadChartDialog: {resp.result}")
+        None
 
     async def showNoticeDialog(self, params: Dict[str, Any]) -> None:
         """Displays a notice dialog with only an OK button.
@@ -969,7 +969,7 @@ class TVWidget(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"params": params}
         )
-        logger.info(f"showNoticeDialog: {resp.result}")
+        None
 
     async def showSaveAsChartDialog(self) -> None:
         """Displays the 'Save Chart Layout As' dialog.
@@ -977,7 +977,7 @@ class TVWidget(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"showSaveAsChartDialog: {resp.result}")
+        None
 
     async def startFullscreen(self) -> None:
         """Enters fullscreen mode (if not currently in fullscreen).
@@ -985,7 +985,7 @@ class TVWidget(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"startFullscreen: {resp.result}")
+        None
 
     async def subscribe(self, event: str, callback: Callable[[Any], None]) -> None:
         """Subscribes to library events.
@@ -1003,7 +1003,7 @@ class TVWidget(TVObject):
             method_name=sys._getframe(0).f_code.co_name,
             kwargs={"event": event}
         )
-        logger.info(f"subscribe: event={event}, result={resp.result}")
+        None
 
     async def supportedChartTypes(self) -> Any:
         """Returns the supported chart types for the currently active chart (read-only).
@@ -1063,7 +1063,7 @@ class TVWidget(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"takeScreenshot: {resp.result}")
+        None
 
     async def timeHoursFormat(self) -> TVWatchedValue[Any]:
         """Returns a WatchedValue for the time format (hours part).
@@ -1110,7 +1110,7 @@ class TVWidget(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"unloadUnusedCharts: {resp.result}")
+        None
 
     async def unsubscribe(self, event: str, callback: Callable[[Any], None]) -> None:
         """Unsubscribes from library events.
@@ -1120,7 +1120,7 @@ class TVWidget(TVObject):
             callback: Callback to remove (must be the same reference passed to subscribe)
         """
         if event not in self.event_callbacks:
-            logger.warning(f"unsubscribe: No callbacks found for event={event}")
+            None
             return
         
         try:
@@ -1134,9 +1134,9 @@ class TVWidget(TVObject):
                 method_name=sys._getframe(0).f_code.co_name,
                 kwargs={"event": event}
             )
-            logger.info(f"unsubscribe: event={event}, result={resp.result}")
+            None
         except ValueError:
-            logger.warning(f"unsubscribe: Callback not found for event={event}")
+            None
 
     async def watchList(self) -> Any:
         """Returns the Watchlist API.
@@ -1187,10 +1187,10 @@ class TVWidget(TVObject):
             event: Event name that was fired
             args: Arguments passed to the event callback
         """
-        logger.info(f"onWidgetEventFired: event={event}, args={args}")
+        None
         
         if event not in self.event_callbacks:
-            logger.warning(f"onWidgetEventFired: No callbacks registered for event={event}")
+            None
             return
         
         # 调用所有注册的回调函数
@@ -1209,4 +1209,4 @@ class TVWidget(TVObject):
         Args:
             event: Event name that was unsubscribed
         """
-        logger.info(f"onWidgetEventUnsubscribed: event={event}")
+        None

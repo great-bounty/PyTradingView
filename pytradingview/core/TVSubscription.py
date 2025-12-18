@@ -19,7 +19,7 @@ class TVSubscription(TVObject, Generic[T]):
     
     async def subscribe(self, callback: CallBackParams, singleshot: bool = False) -> None:
         if self._is_subscribed:
-            logger.warning("Already subscribed")
+            None
             return
         
         self._event_callback = callback
@@ -30,11 +30,11 @@ class TVSubscription(TVObject, Generic[T]):
         )
         
         self._is_subscribed = True
-        logger.info(f"subscribe: {resp.result}")
+        None
     
     async def unsubscribe(self) -> None:
         if not self._is_subscribed:
-            logger.warning("Not subscribed")
+            None
             return
         
         resp: TVMethodResponse = await self.call_web_object_method(
@@ -43,11 +43,11 @@ class TVSubscription(TVObject, Generic[T]):
         
         self._event_callback = None
         self._is_subscribed = False
-        logger.info(f"unsubscribe: {resp.result}")
+        None
     
     async def unsubscribeAll(self) -> None:
         if not self._is_subscribed:
-            logger.warning("Not subscribed")
+            None
             return
         
         resp: TVMethodResponse = await self.call_web_object_method(
@@ -56,10 +56,10 @@ class TVSubscription(TVObject, Generic[T]):
         
         self._event_callback = None
         self._is_subscribed = False
-        logger.info(f"unsubscribeAll: {resp.result}")
+        None
     
     async def onEventFired(self, args: List[Any]) -> None:
-        logger.info(f"onEventFired: {args}")
+        None
         if len(args) == 1:
             arg0 = args[0]
             if isinstance(arg0, dict):

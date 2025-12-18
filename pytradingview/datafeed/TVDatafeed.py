@@ -56,7 +56,7 @@ class TVDatafeed(TVIExternalDatafeed, TVIDatafeedChartApi, TVIDatafeedQuotesApi)
         self._configuration: Optional[TVDatafeedConfiguration] = None
         self._subscribers: Dict[str, Any] = {}
         self._quote_subscribers: Dict[str, Any] = {}
-        logger.info("TVDatafeed initialized")
+        None
 
     # ========== IExternalDatafeed Implementation ==========
 
@@ -79,7 +79,7 @@ class TVDatafeed(TVIExternalDatafeed, TVIDatafeedChartApi, TVIDatafeedQuotesApi)
         onResult: TVSearchSymbolsCallback
     ) -> None:
         """Search for symbols - should be implemented by subclass."""
-        logger.warning("searchSymbols not implemented")
+        None
         onResult([])
 
     def resolveSymbol(
@@ -90,7 +90,7 @@ class TVDatafeed(TVIExternalDatafeed, TVIDatafeedChartApi, TVIDatafeedQuotesApi)
         extension: Optional[TVSymbolResolveExtension] = None
     ) -> None:
         """Resolve symbol information - should be implemented by subclass."""
-        logger.warning("resolveSymbol not implemented")
+        None
         onError("resolveSymbol not implemented")
 
     def getBars(
@@ -102,7 +102,7 @@ class TVDatafeed(TVIExternalDatafeed, TVIDatafeedChartApi, TVIDatafeedQuotesApi)
         onError: TVDatafeedErrorCallback
     ) -> None:
         """Get historical bars - should be implemented by subclass."""
-        logger.warning("getBars not implemented")
+        None
         onResult([], TVHistoryMetadata(noData=True))
 
     def subscribeBars(
@@ -120,13 +120,13 @@ class TVDatafeed(TVIExternalDatafeed, TVIDatafeedChartApi, TVIDatafeedQuotesApi)
             'onTick': onTick,
             'onReset': onResetCacheNeededCallback
         }
-        logger.info(f"Subscribed bars for {symbolInfo.name} with ID {listenerGuid}")
+        None
 
     def unsubscribeBars(self, listenerGuid: str) -> None:
         """Unsubscribe from bar updates."""
         if listenerGuid in self._subscribers:
             del self._subscribers[listenerGuid]
-            logger.info(f"Unsubscribed bars with ID {listenerGuid}")
+            None
 
     # ========== IDatafeedQuotesApi Implementation ==========
 
@@ -137,7 +137,7 @@ class TVDatafeed(TVIExternalDatafeed, TVIDatafeedChartApi, TVIDatafeedQuotesApi)
         onErrorCallback: TVQuotesErrorCallback
     ) -> None:
         """Get quote data - should be implemented by subclass."""
-        logger.warning("getQuotes not implemented")
+        None
         onDataCallback([])
 
     def subscribeQuotes(
@@ -153,10 +153,10 @@ class TVDatafeed(TVIExternalDatafeed, TVIDatafeedChartApi, TVIDatafeedQuotesApi)
             'fastSymbols': fastSymbols,
             'callback': onRealtimeCallback
         }
-        logger.info(f"Subscribed quotes with ID {listenerGUID}")
+        None
 
     def unsubscribeQuotes(self, listenerGUID: str) -> None:
         """Unsubscribe from quote updates."""
         if listenerGUID in self._quote_subscribers:
             del self._quote_subscribers[listenerGUID]
-            logger.info(f"Unsubscribed quotes with ID {listenerGUID}")
+            None

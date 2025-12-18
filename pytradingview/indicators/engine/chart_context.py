@@ -39,7 +39,7 @@ class ChartContext:
     
     def __post_init__(self):
         """Post-initialization processing"""
-        logger.info(f"Created ChartContext for chart_id={self.chart_id}")
+        None
     
     def add_indicator(self, name: str, indicator: 'TVIndicator') -> None:
         """
@@ -50,7 +50,7 @@ class ChartContext:
             indicator: Indicator instance
         """
         self.active_indicators[name] = indicator
-        logger.debug(f"Chart {self.chart_id}: Added indicator '{name}'")
+        None
     
     def remove_indicator(self, name: str) -> Optional['TVIndicator']:
         """
@@ -64,7 +64,7 @@ class ChartContext:
         """
         indicator = self.active_indicators.pop(name, None)
         if indicator:
-            logger.debug(f"Chart {self.chart_id}: Removed indicator '{name}'")
+            None
         return indicator
     
     def get_indicator(self, name: str) -> Optional['TVIndicator']:
@@ -95,7 +95,7 @@ class ChartContext:
         """Clear all indicators"""
         count = len(self.active_indicators)
         self.active_indicators.clear()
-        logger.info(f"Chart {self.chart_id}: Cleared {count} indicators")
+        None
     
     def get_indicator_names(self) -> list[str]:
         """Get list of all active indicator names"""
@@ -113,7 +113,7 @@ class ChartContext:
             self.symbol = symbol
         if interval is not None:
             self.interval = interval
-        logger.debug(f"Chart {self.chart_id}: Updated to {self.symbol}/{self.interval}")
+        None
 
 
 class ChartContextManager:
@@ -129,7 +129,7 @@ class ChartContextManager:
     def __init__(self):
         """Initialize chart context manager"""
         self._contexts: Dict[str, ChartContext] = {}
-        logger.info("ChartContextManager initialized")
+        None
     
     def create_context(self, chart_id: str, chart: 'TVChart') -> ChartContext:
         """
@@ -143,7 +143,7 @@ class ChartContextManager:
             Newly created chart context
         """
         if chart_id in self._contexts:
-            logger.warning(f"ChartContext for {chart_id} already exists, will be replaced")
+            None
         
         context = ChartContext(chart_id=chart_id, chart=chart)
         self._contexts[chart_id] = context
@@ -173,7 +173,7 @@ class ChartContextManager:
         """
         context = self._contexts.pop(chart_id, None)
         if context:
-            logger.info(f"Removed ChartContext for {chart_id}")
+            None
         return context
     
     def get_all_contexts(self) -> Dict[str, ChartContext]:
@@ -188,7 +188,7 @@ class ChartContextManager:
         """Clear all chart contexts"""
         count = len(self._contexts)
         self._contexts.clear()
-        logger.info(f"Cleared all {count} chart contexts")
+        None
     
     def has_context(self, chart_id: str) -> bool:
         """

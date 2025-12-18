@@ -27,9 +27,9 @@ class TVObjectPool:
         if self.cleanup_timer is not None and self.cleanup_timer.is_alive():
             self.cleanup_timer.cancel()
             self.cleanup_timer = None
-            print("cleanup_timer")
+            None
         else:
-            print("not running")
+            None
 
     def _init(self):
         self._object_to_id: Dict[int, str] = {}
@@ -109,7 +109,7 @@ class TVObjectPool:
         for oid in to_remove:
             self._id_to_strongref.pop(oid, None)
             self._id_to_obj_id.pop(oid, None)
-        logging.debug(f"TVObjectPool Cleaned up: {self._id_to_strongref.items()}")
+        None
         self.cleanup_timer = threading.Timer(60, self.cleanup)
         self.start_cleanup_timer()
 

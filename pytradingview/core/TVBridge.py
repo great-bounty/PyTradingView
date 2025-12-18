@@ -63,7 +63,7 @@ class TVBridge(object):
             config: TVWidgetConfig 实例
         """
         self._config_provider = config
-        logger.info(f"Config provider registered: {config}")
+        None
     
     def register_chart_ready_callback(self, callback: Callable[['TVWidget'], Awaitable[None]]) -> None:
         """
@@ -78,7 +78,7 @@ class TVBridge(object):
             callback: Async callback function to execute when chart is ready
         """
         self._chart_ready_callback = callback
-        logger.info("Chart ready callback registered")
+        None
     
     def setup_routes(self):
         self._register_connection_routes()
@@ -104,7 +104,7 @@ class TVBridge(object):
             return await self._handle_web_to_python_call(data)
 
     async def _handle_web_to_python_call(self, data: Dict[str, Any]) -> TVMethodResponse:
-        logger.info(f"Received RPC call: {data}")
+        None
         call_params = TVMethodCall.from_dict(data)
         
         # 分发到具体处理器
@@ -135,7 +135,7 @@ class TVBridge(object):
                 if self._config_provider:
                     result = self._config_provider.to_dict()
                 else:
-                    logger.warning("No config provider registered, returning None")
+                    None
                     result = None
                 return {"result": result}
             elif params.method_name == "chartDataReady":
@@ -210,7 +210,7 @@ class TVBridge(object):
             if self._chart_ready_callback:
                 await self._chart_ready_callback(tvWidget)
             else:
-                logger.warning("No chart ready callback registered")
+                None
                 
         except Exception as e:
             logger.exception(f"Error in _handle_chart_data_ready: {e}")
@@ -245,7 +245,7 @@ class TVBridge(object):
             self.bridge_port = self._find_available_port(self.bridge_port)
 
         try:
-            logger.info(f"Starting HTTP bridge server on 127.0.0.1:{self.bridge_port}")
+            None
             config = uvicorn.Config(
                 self.bridge_http_app,
                 host="127.0.0.1",
@@ -288,11 +288,11 @@ class TVBridge(object):
                 if resp and resp.get('nd_http_port'):
                     self.is_connected_to_node = True
                     self.node_server_port = resp['nd_http_port']
-                    logger.info(f"Connected to Node server on port {self.node_server_port}")
+                    None
                     return True
                     
             except Exception as e:
-                logger.debug(f"Connection attempt {retry+1} failed on port {self.node_server_port}: {e}")
+                None
             
             if not self.is_connected_to_node:
                 delay = min(base_delay * (2 ** min(retry, 5)), 5.0)
@@ -335,7 +335,7 @@ class TVBridge(object):
                     response.raise_for_status()
                     return await response.json()
         except (aiohttp.ClientError, asyncio.TimeoutError) as e:
-            logger.debug(f"HTTP request to {nd_url} failed: {e}")
+            None
             return None
         except Exception as e:
             logger.exception(f"Unexpected error during HTTP request to {nd_url}")

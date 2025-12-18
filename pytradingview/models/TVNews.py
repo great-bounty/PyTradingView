@@ -17,4 +17,4 @@ class TVNews(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"refresh: {resp.result}")
+        None

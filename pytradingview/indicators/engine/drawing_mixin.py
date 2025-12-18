@@ -45,7 +45,7 @@ class TVEngineDrawing(TVEngineRemote):
             if contexts:
                 chart_id = next(iter(contexts.keys()))
             else:
-                logger.warning("No chart contexts available")
+                None
                 return {}
         
         return await self.run_indicators_for_chart(chart_id, df)
@@ -131,14 +131,14 @@ class TVEngineDrawing(TVEngineRemote):
             try:
                 # Note: draw method is not async, it's a synchronous method
                 indicator.draw(chart, df, signals, drawables)
-                logger.debug(f"Used custom draw for indicator: {indicator.__class__.__name__}")
+                None
             except Exception as e:
                 logger.error(f"Custom draw failed, falling back to default: {e}")
                 await self._default_draw(indicator, chart, df, signals, drawables)
         else:
             # Use default drawing logic
             if not has_custom_draw:
-                logger.debug(f"Using default draw for indicator: {indicator.__class__.__name__}")
+                None
             await self._default_draw(indicator, chart, df, signals, drawables)
         
         indicator.on_draw_end()
@@ -164,7 +164,7 @@ class TVEngineDrawing(TVEngineRemote):
         
         # Check if chart exists
         if not chart:
-            logger.warning("Chart is not available, skipping draw")
+            None
             return
         
         # Get timestamps

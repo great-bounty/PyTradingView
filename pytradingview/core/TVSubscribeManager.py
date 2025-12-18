@@ -26,7 +26,7 @@ class TVSubscribeManager:
             self._event_handlers[event_name] = []
         self._event_handlers[event_name].append(handler)
         caller = inspect.currentframe().f_back
-        print(f"Handler subscribed to {event_name} by {caller.f_code.co_name}")
+        None
 
     def subscribe_async(self, event_name: str, handler: Callable) -> None:
         if event_name not in self._async_event_handlers:
@@ -39,7 +39,7 @@ class TVSubscribeManager:
                 try:
                     handler(*args, **kwargs)
                 except Exception as e:
-                    print(f"Error in sync handler for {event_name}: {str(e)}")
+                    None
 
     async def publish_async(self, event_name: str, *args, **kwargs) -> None:
         if event_name in self._async_event_handlers:
@@ -51,7 +51,7 @@ class TVSubscribeManager:
                     task.add_done_callback(self._cleanup_tasks.discard)
                     tasks.append(task)
                 except Exception as e:
-                    print(f"Error scheduling async handler for {event_name}: {str(e)}")
+                    None
             
             if tasks:
                 await asyncio.gather(*tasks, return_exceptions=True)
@@ -72,7 +72,7 @@ class TVSubscribePublisher:
         self.event_manager = TVSubscribeManager.get_instance()
     
     def setSymbol(self, symbol: str) -> None:
-        print(f"[{inspect.currentframe().f_code.co_name}] Symbol set to {symbol}")
+        None
         
         self.event_manager.publish('symbol_changed', symbol)
         
@@ -91,14 +91,14 @@ class TVSubscribeListener:
         self.event_manager.subscribe_async('symbol_changed_async', self._on_symbol_changed_async)
     
     def _on_symbol_changed(self, symbol: str) -> None:
-        print(f"[{inspect.currentframe().f_code.co_name}] Received symbol: {symbol}")
+        None
     
     async def _on_symbol_changed_async(self, symbol: str) -> None:
         try:
-            print(f"[{inspect.currentframe().f_code.co_name}] Async received symbol: {symbol}")
+            None
             await self._process_symbol_async(symbol)
         except Exception as e:
-            print(f"Error in async handler: {str(e)}")
+            None
     
     async def _process_symbol_async(self, symbol: str) -> None:
         await asyncio.sleep(0.1)

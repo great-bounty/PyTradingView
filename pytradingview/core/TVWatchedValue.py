@@ -29,7 +29,7 @@ class TVWatchedValue(TVObject, Generic[T]):
             method_name=sys._getframe(0).f_code.co_name, 
             kwargs={"value": value, "forceUpdate": forceUpdate}
         )
-        logger.info(f"setValue: {resp.result}")
+        None
     
     async def subscribe(self, callback: CallBackParams) -> None:
         self._value_changed_callback = callback
@@ -37,7 +37,7 @@ class TVWatchedValue(TVObject, Generic[T]):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"subscribe: {resp.result}")
+        None
     
     async def unsubscribe(self) -> None:
         self._value_changed_callback = None
@@ -45,10 +45,10 @@ class TVWatchedValue(TVObject, Generic[T]):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"unsubscribe: {resp.result}")
+        None
     
     async def onValueChanged(self, value: T) -> None:
-        logger.info(f"onValueChanged: {value}")
+        None
         self._current_value = value
         
         if self._value_changed_callback:

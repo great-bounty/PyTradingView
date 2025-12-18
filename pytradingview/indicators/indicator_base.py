@@ -204,7 +204,7 @@ class TVIndicator(ABC):
         
         if self._config.debug:
             chart_info = f" (chart_id={self._chart_id})" if self._chart_id else ""
-            print(f"[{self._config.name}] Indicator initialized{chart_info}")
+            None
     
     def on_data_loaded(self, df: pd.DataFrame) -> None:
         """
@@ -214,12 +214,12 @@ class TVIndicator(ABC):
             df: Loaded data DataFrame
         """
         if self._config and self._config.debug:
-            print(f"[{self._config.name}] Data loaded, total {len(df)} K-lines")
+            None
     
     def on_calculate_start(self) -> None:
         """Callback before calculation starts"""
         if self._config and self._config.debug:
-            print(f"[{self._config.name}] Starting indicator calculation...")
+            None
     
     def on_calculate_end(self, 
                          signals: List[TVSignal], 
@@ -232,22 +232,22 @@ class TVIndicator(ABC):
             drawables: Drawable elements
         """
         if self._config and self._config.debug:
-            print(f"[{self._config.name}] Calculation completed: {len(signals)} signals, {len(drawables)} drawable elements")
+            None
     
     def on_draw_start(self) -> None:
         """Callback before drawing starts"""
         if self._config and self._config.debug:
-            print(f"[{self._config.name}] Starting chart drawing...")
+            None
     
     def on_draw_end(self) -> None:
         """Callback after drawing completes"""
         if self._config and self._config.debug:
-            print(f"[{self._config.name}] Drawing completed")
+            None
     
     def on_destroy(self) -> None:
         """Indicator destruction callback"""
         if self._config and self._config.debug:
-            print(f"[{self._config.name}] Indicator destroyed")
+            None
     
     # === Helper Methods ===
     
@@ -285,7 +285,7 @@ class TVIndicator(ABC):
                 await self._chart.removeEntity(entityId=entity_id)
             except Exception as e:
                 if self._config and self._config.debug:
-                    print(f"[{self._config.name}] Failed to clear entity: {e}")
+                    None
         
         self._drawn_entities.clear()
     

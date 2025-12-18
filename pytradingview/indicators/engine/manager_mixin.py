@@ -60,11 +60,11 @@ class TVEngineManager(TVEngineLoader):
         """Activate indicator to specified chart"""
         context = self.chart_context_manager.get_context(chart_id)
         if not context:
-            logger.warning(f"Chart context '{chart_id}' not found")
+            None
             return False
         
         if context.has_indicator(name):
-            logger.warning(f"Indicator '{name}' is already active on chart '{chart_id}'")
+            None
             return True
         
         # Create indicator instance
@@ -80,14 +80,14 @@ class TVEngineManager(TVEngineLoader):
             indicator.on_init(self._widget, context.chart, chart_id)
         
         context.add_indicator(name, indicator)
-        logger.info(f"Activated indicator '{name}' on chart '{chart_id}'")
+        None
         return True
     
     def _activate_indicator_to_all_charts(self, name: str) -> bool:
         """Activate indicator to all charts"""
         contexts = self.chart_context_manager.get_all_contexts()
         if not contexts:
-            logger.warning("No chart contexts available")
+            None
             return False
         
         success = True
@@ -119,11 +119,11 @@ class TVEngineManager(TVEngineLoader):
         """Deactivate indicator from specified chart"""
         context = self.chart_context_manager.get_context(chart_id)
         if not context:
-            logger.warning(f"Chart context '{chart_id}' not found")
+            None
             return False
         
         if not context.has_indicator(name):
-            logger.warning(f"Indicator '{name}' is not active on chart '{chart_id}'")
+            None
             return False
         
         # Call destroy callback
@@ -133,7 +133,7 @@ class TVEngineManager(TVEngineLoader):
         
         # Remove
         context.remove_indicator(name)
-        logger.info(f"Deactivated indicator '{name}' from chart '{chart_id}'")
+        None
         return True
     
     def _deactivate_indicator_from_all_charts(self, name: str) -> bool:

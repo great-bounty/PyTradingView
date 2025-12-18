@@ -17,31 +17,31 @@ class TVHMElement(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs=kwargs
         )
-        logger.info(f"setTextContent: {resp.result}")
+        None
 
     async def setTitle(self, title: str):
         kwargs: dict[str, str] = {"title":title}
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs=kwargs
         )
-        logger.info(f"setTitle: {resp.result}")
+        None
 
     async def setAlign(self, align: str) -> None:
         kwargs: dict[str, str] = {"align":align}
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs=kwargs
         )
-        logger.info(f"setAlign: {resp.result}")
+        None
     
     async def onClick(self, callback: CallBackParams = None):
         self.onClick_callback: CallBackParams = callback
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"onClick: {resp.result}")
+        None
         
     async def onClickCallback(self) -> None:
-        logger.info(f"onClickCallback successful")
+        None
         if self.onClick_callback:
             await self.handleCallbackFunction(callback=self.onClick_callback)
 
@@ -50,4 +50,4 @@ class TVHMElement(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs=kwargs
         )
-        logger.info(f"setAttribute: {resp.result}")
+        None

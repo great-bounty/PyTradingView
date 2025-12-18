@@ -74,7 +74,7 @@ class TVChart(TVObject):
             method_name=sys._getframe(0).f_code.co_name, kwargs={"state": state}
         )
         
-        logger.info(f"applyLineToolsState completed")
+        None
     
     async def applyLineToolsStateCallback(self) -> None:
         """Callback method invoked by frontend TypeScript after applyLineToolsState Promise resolves.
@@ -82,7 +82,7 @@ class TVChart(TVObject):
         This method is called by the remote invocation framework to notify Python
         that line tools state application has completed.
         """
-        logger.info("applyLineToolsStateCallback: received from frontend")
+        None
         if hasattr(self, 'applyLineToolsState_callback') and self.applyLineToolsState_callback:
             await self.handleCallbackFunction(callback=self.applyLineToolsState_callback)
 
@@ -95,7 +95,7 @@ class TVChart(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"template": template}
         )
-        logger.info(f"applyStudyTemplate: {resp.result}")
+        None
 
     async def availableZOrderOperations(self, sources: Any) -> Any:
         """Returns available Z-order operations for the specified entity collection.
@@ -134,7 +134,7 @@ class TVChart(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"sources": sources}
         )
-        logger.info(f"bringForward: {resp.result}")
+        None
 
     async def bringToFront(self, sources: Any) -> None:
         """Moves the specified sources to the top of the Z-order.
@@ -145,7 +145,7 @@ class TVChart(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"sources": sources}
         )
-        logger.info(f"bringToFront: {resp.result}")
+        None
 
     async def canZoomOut(self) -> bool:
         """Checks whether the chart can be zoomed out using the zoomOut method.
@@ -164,7 +164,7 @@ class TVChart(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"cancelSelectBar: {resp.result}")
+        None
 
     async def chartType(self) -> SeriesType:
         """Returns the chart type of the main series.
@@ -188,7 +188,7 @@ class TVChart(TVObject):
             method_name=sys._getframe(0).f_code.co_name,
             kwargs={"marksToClear": marksToClear},
         )
-        logger.info(f"clearMarks: {resp.result}")
+        None
 
     async def createAnchoredShape(self, position: TVShapePosition, options: TVAnchorShape) -> EntityId:
         """Creates a new anchored shape that maintains relative position as chart range changes.
@@ -362,7 +362,7 @@ class TVChart(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs=kwargs
         )
-        logger.info(f"crossHairMoved: {resp.result}")
+        None
 
     async def dataReady(self) -> bool:
         """Provides a callback to be invoked when chart data loading completes.
@@ -408,7 +408,7 @@ class TVChart(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs=kwargs
         )
-        logger.info(f"executeActionById: {resp.result}")
+        None
 
     async def exportData(self, options: Optional[Any] = None, callback: CallBackParams = None) -> None:
         """Exports current chart data.
@@ -657,7 +657,7 @@ class TVChart(TVObject):
             method_name=sys._getframe(0).f_code.co_name, kwargs=kwargs
         )
         
-        logger.info(f"loadChartTemplate completed: template={templateName}")
+        None
 
     async def loadChartTemplateCallback(self) -> None:
         """Callback method invoked by frontend TypeScript after loadChartTemplate Promise resolves.
@@ -665,7 +665,7 @@ class TVChart(TVObject):
         This method is called by the remote invocation framework to notify Python
         that chart template loading has completed.
         """
-        logger.info("loadChartTemplateCallback: received from frontend")
+        None
         if hasattr(self, 'loadChartTemplate_callback') and self.loadChartTemplate_callback:
             await self.handleCallbackFunction(callback=self.loadChartTemplate_callback)
 
@@ -688,7 +688,7 @@ class TVChart(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs=kwargs
         )
-        logger.info(f"maximizeChart: {resp.result}")
+        None
 
     async def onChartTypeChanged(self) -> TVSubscription:
         """Subscribes to chart type change events.
@@ -784,7 +784,7 @@ class TVChart(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs=kwargs
         )
-        logger.info(f"refreshMarks: {resp.result}")
+        None
 
     async def reloadLineToolsFromServer(self) -> None:
         """Manually triggers reloading line tools from the server.
@@ -795,7 +795,7 @@ class TVChart(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs=kwargs
         )
-        logger.info(f"reloadLineToolsFromServer: {resp.result}")
+        None
 
     async def removeAllShapes(self) -> None:
         """Removes all shapes from the chart.
@@ -804,7 +804,7 @@ class TVChart(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs=kwargs
         )
-        logger.info(f"removeAllShapes: {resp.result}")
+        None
 
     async def removeAllStudies(self) -> None:
         """Removes all studies (indicators) from the chart.
@@ -813,7 +813,7 @@ class TVChart(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs=kwargs
         )
-        logger.info(f"removeAllStudies: {resp.result}")
+        None
 
     async def removeEntity(self, entityId: Any, options: Optional[Any] = None) -> None:
         """Removes the specified entity (shape or study) from the chart.
@@ -826,7 +826,7 @@ class TVChart(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs=kwargs
         )
-        logger.info(f"removeEntity: {resp.result}")
+        None
 
     async def requestSelectBar(self, callback: CallBackParams) -> None:
         """Requests to enter bar selection mode.
@@ -859,7 +859,7 @@ class TVChart(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs=kwargs
         )
-        logger.info(f"resetData: {resp.result}")
+        None
 
     async def resolution(self) -> Any:
         """Returns the current chart interval (resolution).
@@ -880,7 +880,7 @@ class TVChart(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs=kwargs
         )
-        logger.info(f"restoreChart: {resp.result}")
+        None
 
     async def selection(self) -> TVSelection:
         """Returns the selection API object for managing shape selection.
@@ -904,7 +904,7 @@ class TVChart(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs=kwargs
         )
-        logger.info(f"sendBackward: {resp.result}")
+        None
 
     async def sendToBack(self, entities: List[Any]) -> None:
         """Moves the specified entity group to the bottom of the Z-order.
@@ -916,7 +916,7 @@ class TVChart(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs=kwargs
         )
-        logger.info(f"sendToBack: {resp.result}")
+        None
 
     async def setAllPanesHeight(self, heights: List[int]) -> None:
         """Sets the height of each pane (in order).
@@ -928,7 +928,7 @@ class TVChart(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs=kwargs
         )
-        logger.info(f"setAllPanesHeight: {resp.result}")
+        None
 
     async def setChartType(
         self, type: Any, callback: Optional[Callable[[], None]] = None
@@ -943,7 +943,7 @@ class TVChart(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs=kwargs
         )
-        logger.info(f"setChartType: {resp.result}")
+        None
 
     async def setDragExportEnabled(self, enabled: bool) -> None:
         """Enables or disables drag export functionality.
@@ -955,7 +955,7 @@ class TVChart(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs=kwargs
         )
-        logger.info(f"setDragExportEnabled: {resp.result}")
+        None
 
     async def setPriceToBarRatio(
         self, ratio: float, options: Optional[Any] = None
@@ -970,7 +970,7 @@ class TVChart(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs=kwargs
         )
-        logger.info(f"setPriceToBarRatio: {resp.result}")
+        None
 
     async def setPriceToBarRatioLocked(
         self, value: bool, options: Optional[Any] = None
@@ -985,7 +985,7 @@ class TVChart(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs=kwargs
         )
-        logger.info(f"setPriceToBarRatioLocked: {resp.result}")
+        None
 
     async def setResolution(
         self,
@@ -1045,7 +1045,7 @@ class TVChart(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs=kwargs
         )
-        logger.info(f"setSymbol: {resp.result}")
+        None
 
     async def setSymbolOptionsCallback(self) -> None:
         """Safely executes the symbol options callback function.
@@ -1060,7 +1060,7 @@ class TVChart(TVObject):
         except Exception as e:
             logger.error(f"Symbol options callback failed: {str(e)}", exc_info=True)
         finally:
-            logger.info("setSymbolOptionsCallback executed")
+            None
 
     async def setTimeFrame(self, timeFrame: Any) -> None:
         """Sets the chart's time frame.
@@ -1072,7 +1072,7 @@ class TVChart(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs=kwargs
         )
-        logger.info(f"setTimeFrame: {resp.result}")
+        None
 
     async def setVisibleRange(
         self,
@@ -1094,7 +1094,7 @@ class TVChart(TVObject):
             method_name=sys._getframe(0).f_code.co_name, kwargs=kwargs
         )
         
-        logger.info(f"setVisibleRange completed")
+        None
 
     async def setVisibleRangeCallback(self) -> None:
         """Callback method invoked by frontend TypeScript after setVisibleRange Promise resolves.
@@ -1102,7 +1102,7 @@ class TVChart(TVObject):
         This method is called by the remote invocation framework to notify Python
         that visible range setting has completed.
         """
-        logger.info("setVisibleRangeCallback: received from frontend")
+        None
         if hasattr(self, 'setVisibleRange_callback') and self.setVisibleRange_callback:
             await self.handleCallbackFunction(callback=self.setVisibleRange_callback)
 
@@ -1116,7 +1116,7 @@ class TVChart(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs=kwargs
         )
-        logger.info(f"setZoomEnabled: {resp.result}")
+        None
 
     async def shapesGroupController(self) -> TVShapesGroupController:
         """Returns the shapes group controller API.
@@ -1140,7 +1140,7 @@ class TVChart(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs=kwargs
         )
-        logger.info(f"showPropertiesDialog: {resp.result}")
+        None
 
     async def symbol(self) -> str:
         """Returns the current chart's trading symbol name.
@@ -1173,4 +1173,4 @@ class TVChart(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs=kwargs
         )
-        logger.info(f"zoomOut: {resp.result}")
+        None

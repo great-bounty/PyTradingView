@@ -32,7 +32,7 @@ class TVSelection(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"entities": entities}
         )
-        logger.info(f"add: {resp.result}")
+        None
 
     async def set(self, entities: Union[List[EntityId], EntityId]) -> None:
         """
@@ -42,7 +42,7 @@ class TVSelection(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"entities": entities}
         )
-        logger.info(f"set: {resp.result}")
+        None
 
     async def remove(self, entities: List[EntityId]) -> None:
         """
@@ -52,7 +52,7 @@ class TVSelection(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"entities": entities}
         )
-        logger.info(f"remove: {resp.result}")
+        None
 
     async def contains(self, entity: EntityId) -> bool:
         """
@@ -92,7 +92,7 @@ class TVSelection(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"clear: {resp.result}")
+        None
 
     async def onChanged(self) -> TVSubscription:
         """

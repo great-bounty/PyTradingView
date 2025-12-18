@@ -56,11 +56,11 @@ class TVWidgetConfig:
             config: Configuration items to update
         """
         if not isinstance(config, dict):
-            logger.warning(f"Invalid config type: {type(config)}, expected dict")
+            None
             return
         
         self._config.update(config)
-        logger.debug(f"Config updated: {list(config.keys())}")
+        None
     
     def get(self, key: str, default: Any = None) -> Any:
         """

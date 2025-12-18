@@ -29,7 +29,7 @@ class TVCustomSymbolStatusAdapter(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"visible": visible}
         )
-        logger.info(f"setVisible: {resp.result}")
+        None
         return self
 
     async def getIcon(self) -> Optional[str]:
@@ -44,7 +44,7 @@ class TVCustomSymbolStatusAdapter(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"icon": icon}
         )
-        logger.info(f"setIcon: {resp.result}")
+        None
         return self
 
     async def getColor(self) -> str:
@@ -59,7 +59,7 @@ class TVCustomSymbolStatusAdapter(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"color": color}
         )
-        logger.info(f"setColor: {resp.result}")
+        None
         return self
 
     async def getTooltip(self) -> Optional[str]:
@@ -73,7 +73,7 @@ class TVCustomSymbolStatusAdapter(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"tooltip": tooltip}
         )
-        logger.info(f"setTooltip: {resp.result}")
+        None
         return self
 
     async def getDropDownContent(self) -> Optional[List[CustomStatusDropDownContent]]:
@@ -88,5 +88,5 @@ class TVCustomSymbolStatusAdapter(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"content": content}
         )
-        logger.info(f"setDropDownContent: {resp.result}")
+        None
         return self

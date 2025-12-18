@@ -71,7 +71,7 @@ def get_class_map() -> Dict[str, Any]:
         "TVWidgetbar": TVWidgetbar
     }
     
-    logger.debug(f"Initialized class map with {len(_CLASS_MAP_CACHE)} classes")
+    None
     return _CLASS_MAP_CACHE
 
 class TVObject:
@@ -111,12 +111,12 @@ class TVObject:
                     f"Object ID '{object_id}' already occupied by "
                     f"{type(existing_obj).__name__}, cannot use for {cls.__name__}"
                 )
-            logger.debug(f"Reusing existing {cls.__name__} with ID: {object_id}")
+            None
             return existing_obj  # type: ignore
         
         new_obj = cls(object_id)
         pool.register_object_with_id(new_obj, object_id)
-        logger.debug(f"Created new {cls.__name__} with ID: {object_id}")
+        None
         return new_obj  # type: ignore
 
     def __init__(self, object_id: str):
@@ -149,7 +149,7 @@ class TVObject:
         return await self.invoke_callback(callback, *args, **kwargs)
 
     def dispose(self):
-        logger.debug(f"Disposing {self.__class__.__name__} with ID: {self.object_id}")
+        None
         TVObjectPool.get_instance().release(self.object_id)
 
     async def call_web_object_method(
@@ -166,7 +166,7 @@ class TVObject:
             kwargs=kwargs,
         )
         
-        logger.debug(f"Calling remote method: {self.__class__.__name__}.{method_name}")
+        None
         response = await TVBridge.get_instance().call_node_server(call_params)
         
         if not response.is_success:
@@ -175,16 +175,13 @@ class TVObject:
         return response
     
     async def handle_remote_call(self, call_params: TVMethodCall) -> dict:
-        logger.info(
-            f"{self.__class__.__name__}.{call_params.method_name} "
-            f"called remotely (object_id={self.object_id})"
-        )
+        None
         
         try:
             method = self._get_method(call_params.method_name)
             result = await self._invoke_method(method, call_params.kwargs or {})
             response = self._build_success_response(result)
-            logger.debug(f"Remote call succeeded: {call_params.method_name}")
+            None
             return response
         except AttributeError:
             return self._build_method_not_found_error(call_params.method_name)
@@ -222,10 +219,7 @@ class TVObject:
             json.dumps(serializable_result)
             return {'result': serializable_result}
         except TypeError as e:
-            logger.warning(
-                f"Result not JSON serializable for {type(result).__name__}: {e}, "
-                f"converting to string"
-            )
+            None
             return {'result': str(result)}
 
     def _make_json_safe(self, value: Any) -> Any:

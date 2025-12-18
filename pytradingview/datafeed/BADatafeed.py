@@ -158,7 +158,7 @@ class BADatafeed(TVDatafeed):
         )
         
         # Should start WebSocket or other real-time data subscription
-        logger.info(f"Starting real-time subscription for {symbolInfo.name} @ {resolution}")
+        None
         
         # Example: Mock pushing real-time data
         # In actual application, this should be called in WebSocket callback
@@ -184,29 +184,29 @@ def main():
     
     # Test configuration retrieval
     def on_ready_callback(config: TVDatafeedConfiguration):
-        print(f"Configuration ready, supported resolutions: {config.supported_resolutions}")
-        print(f"Exchange list: {[ex.name for ex in config.exchanges]}")
+        None
+        None
     
     datafeed.onReady(on_ready_callback)
     
     # Test search
     def on_search_result(results: List[TVSearchSymbolResultItem]):
-        print(f"\nSearch results:")
+        None
         for item in results:
-            print(f"  {item.symbol} - {item.description} ({item.exchange})")
+            None
     
     datafeed.searchSymbols("BTC", "", "", on_search_result)
     
     # Test symbol resolution
     def on_resolve(symbol_info: TVLibrarySymbolInfo):
-        print(f"\nSymbol information:")
-        print(f"  Name: {symbol_info.name}")
-        print(f"  Description: {symbol_info.description}")
-        print(f"  Type: {symbol_info.type}")
-        print(f"  Exchange: {symbol_info.exchange}")
+        None
+        None
+        None
+        None
+        None
     
     def on_error(error: str):
-        print(f"Error: {error}")
+        None
     
     datafeed.resolveSymbol("BTCUSDT", on_resolve, on_error)
 

@@ -95,7 +95,7 @@ class EventBus:
             self._subscribers[event_type] = []
         
         self._subscribers[event_type].append(callback)
-        logger.debug(f"Subscribed to {event_type}: {callback.__name__}")
+        None
     
     def unsubscribe(self, 
                     event_type: EventType, 
@@ -110,9 +110,9 @@ class EventBus:
         if event_type in self._subscribers:
             try:
                 self._subscribers[event_type].remove(callback)
-                logger.debug(f"Unsubscribed from {event_type}: {callback.__name__}")
+                None
             except ValueError:
-                logger.warning(f"Callback not found for {event_type}")
+                None
     
     async def publish(self, 
                       event_type: EventType, 
@@ -132,7 +132,7 @@ class EventBus:
             source=source
         )
         
-        logger.debug(f"Publishing event: {event}")
+        None
         
         # 获取订阅者
         callbacks = self._subscribers.get(event_type, [])
@@ -192,10 +192,10 @@ class EventBus:
         """
         if event_type is None:
             self._subscribers.clear()
-            logger.info("Cleared all event subscribers")
+            None
         elif event_type in self._subscribers:
             del self._subscribers[event_type]
-            logger.info(f"Cleared subscribers for {event_type}")
+            None
     
     def get_subscriber_count(self, event_type: EventType) -> int:
         """

@@ -27,7 +27,7 @@ http_app.add_middleware(
 def start_server(nd_http_port, http_port_py):
     global http_port_nd
     http_port_nd = nd_http_port
-    logger.info(f"start_server: {nd_http_port} {http_port_py}")
+    None
     
     # http_thread = threading.Thread(target=start_http_server, args=(http_port_py,), daemon=True)
     # http_thread.start()
@@ -40,7 +40,7 @@ def start_http_server(http_port_py):
     while restart_count < MAX_RESTARTS:
         try:
             http_server_active = True
-            logger.info(f"Starting HTTP server on 127.0.0.1:{http_port_py}")
+            None
             uvicorn.run(http_app, host="127.0.0.1", port=http_port_py)
         except Exception as e:
             logger.error(f"HTTP server crashed: {str(e)}")

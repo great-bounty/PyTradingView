@@ -70,7 +70,7 @@ class TVEngineSingleton:
             if hasattr(cls._instance, 'deactivate_all'):
                 cls._instance.deactivate_all()  # type: ignore
             cls._instance = None
-            logger.warning("TVEngine singleton has been reset")
+            None
 
     def setup(self, 
              indicators_dir: Optional[str] = None,

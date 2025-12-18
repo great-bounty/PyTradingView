@@ -99,7 +99,7 @@ class TVPane(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"height": height}
         )
-        logger.info(f"setHeight: {resp.result}")
+        None
 
     async def moveTo(self, paneIndex: int) -> None:
         """
@@ -111,7 +111,7 @@ class TVPane(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={"paneIndex": paneIndex}
         )
-        logger.info(f"moveTo: {resp.result}")
+        None
 
     async def paneIndex(self) -> int:
         """
@@ -132,7 +132,7 @@ class TVPane(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"collapse: {resp.result}")
+        None
 
     async def restore(self) -> None:
         """
@@ -141,4 +141,4 @@ class TVPane(TVObject):
         resp: TVMethodResponse = await self.call_web_object_method(
             method_name=sys._getframe(0).f_code.co_name, kwargs={}
         )
-        logger.info(f"restore: {resp.result}")
+        None
