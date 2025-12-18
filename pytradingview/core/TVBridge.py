@@ -220,7 +220,8 @@ class TVBridge(object):
             try:
                 s.bind(('127.0.0.1', port))
                 return True
-            except OSError:
+            except OSError as e:
+                logger.exception(f"Exception caught: {e}")
                 return False
     
     def _find_available_port(self, start_port: int, max_attempts: int = 100) -> int:
@@ -292,6 +293,7 @@ class TVBridge(object):
                     return True
                     
             except Exception as e:
+                logger.exception(f"Exception caught: {e}")
                 None
             
             if not self.is_connected_to_node:
@@ -335,6 +337,7 @@ class TVBridge(object):
                     response.raise_for_status()
                     return await response.json()
         except (aiohttp.ClientError, asyncio.TimeoutError) as e:
+            logger.exception(f"Exception caught: {e}")
             None
             return None
         except Exception as e:

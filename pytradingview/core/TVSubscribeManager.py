@@ -1,6 +1,8 @@
 import inspect
 import asyncio
 from typing import Callable, Dict, List, Any, Set
+import logging
+logger = logging.getLogger(__name__)
 
 class TVSubscribeManager:
     _instance = None
@@ -39,6 +41,7 @@ class TVSubscribeManager:
                 try:
                     handler(*args, **kwargs)
                 except Exception as e:
+                    logger.exception(f"Exception caught: {e}")
                     None
 
     async def publish_async(self, event_name: str, *args, **kwargs) -> None:
@@ -51,6 +54,7 @@ class TVSubscribeManager:
                     task.add_done_callback(self._cleanup_tasks.discard)
                     tasks.append(task)
                 except Exception as e:
+                    logger.exception(f"Exception caught: {e}")
                     None
             
             if tasks:
@@ -98,6 +102,7 @@ class TVSubscribeListener:
             None
             await self._process_symbol_async(symbol)
         except Exception as e:
+            logger.exception(f"Exception caught: {e}")
             None
     
     async def _process_symbol_async(self, symbol: str) -> None:

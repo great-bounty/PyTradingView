@@ -10,6 +10,8 @@ import pandas as pd
 from ..core.TVChart import TVChart
 from ..core.TVWidget import TVWidget
 from .indicator_config import IndicatorConfig
+import logging
+logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -284,6 +286,7 @@ class TVIndicator(ABC):
             try:
                 await self._chart.removeEntity(entityId=entity_id)
             except Exception as e:
+                logger.exception(f"Exception caught: {e}")
                 if self._config and self._config.debug:
                     None
         
@@ -315,6 +318,7 @@ class TVIndicator(ABC):
             self._needs_recalculate = True
             return True, []
         except Exception as e:
+            logger.exception(f"Exception caught: {e}")
             return False, [str(e)]
     
     def update_input_value(self, input_id: str, value: Any) -> Tuple[bool, Optional[str]]:
@@ -402,4 +406,5 @@ class TVIndicator(ABC):
             return True, None
             
         except Exception as e:
+            logger.exception(f"Exception caught: {e}")
             return False, str(e)

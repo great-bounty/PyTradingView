@@ -111,7 +111,8 @@ class EventBus:
             try:
                 self._subscribers[event_type].remove(callback)
                 None
-            except ValueError:
+            except ValueError as e:
+                logger.exception(f"Exception caught: {e}")
                 None
     
     async def publish(self, 
@@ -179,8 +180,9 @@ class EventBus:
             else:
                 # 否则直接运行
                 loop.run_until_complete(self.publish(event_type, data, source))
-        except RuntimeError:
+        except RuntimeError as e:
             # 没有事件循环，创建新的
+            logger.exception(f"Exception caught: {e}")
             asyncio.run(self.publish(event_type, data, source))
     
     def clear_subscribers(self, event_type: Optional[EventType] = None) -> None:

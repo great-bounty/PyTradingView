@@ -104,6 +104,7 @@ class TVEngineLoader(TVEngineSingleton):
                             enabled = config.enabled
                             None
                     except Exception as e:
+                        logger.exception(f"Exception caught: {e}")
                         None
                     
                     registry.register(indicator_class, enabled=enabled)

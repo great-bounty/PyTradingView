@@ -13,6 +13,8 @@ from typing import Any, Optional, Dict, List, Tuple, Union, Callable
 from dataclasses import dataclass, field
 from enum import Enum
 import json
+import logging
+logger = logging.getLogger(__name__)
 
 
 class InputType(Enum):
@@ -289,6 +291,7 @@ class IndicatorConfig:
                     try:
                         self.on_config_changed({input_id: value})
                     except Exception as e:
+                        logger.exception(f"Exception caught: {e}")
                         inp.value = old_value  # Callback failed, restore old value
                         return False, f"Config changed callback failed: {str(e)}"
                 
@@ -361,6 +364,7 @@ class IndicatorConfig:
                 self.on_config_changed({f"{style_id}.{k}": v for k, v in kwargs.items()})
             except Exception as e:
                 # Restore old values
+                logger.exception(f"Exception caught: {e}")
                 for key, value in old_values.items():
                     setattr(style, key, value)
                 return False, f"Config changed callback failed: {str(e)}"

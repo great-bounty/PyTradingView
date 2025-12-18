@@ -1135,7 +1135,8 @@ class TVWidget(TVObject):
                 kwargs={"event": event}
             )
             None
-        except ValueError:
+        except ValueError as e:
+            logger.exception(f"Exception caught: {e}")
             None
 
     async def watchList(self) -> Any:

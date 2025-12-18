@@ -183,9 +183,11 @@ class TVObject:
             response = self._build_success_response(result)
             None
             return response
-        except AttributeError:
+        except AttributeError as e:
+            logger.exception(f"Exception caught: {e}")
             return self._build_method_not_found_error(call_params.method_name)
         except Exception as e:
+            logger.exception(f"Exception caught: {e}")
             return self._build_error_response(
                 call_params.method_name, 
                 call_params.kwargs, 
@@ -219,6 +221,7 @@ class TVObject:
             json.dumps(serializable_result)
             return {'result': serializable_result}
         except TypeError as e:
+            logger.exception(f"Exception caught: {e}")
             None
             return {'result': str(result)}
 
@@ -269,7 +272,8 @@ class TVObject:
     ) -> dict:
         try:
             args_str = json.dumps(kwargs, ensure_ascii=False, indent=2)
-        except (TypeError, ValueError):
+        except (TypeError, ValueError) as e:
+            logger.exception(f"Exception caught: {e}")
             args_str = f"<non-serializable: {type(kwargs).__name__}>"
         
         error_msg = (
